@@ -8,8 +8,8 @@ import org.greenrobot.eventbus.EventBus;
 /**
  * Created by lynnzc on 16-3-18.
  */
-public class BusUtil {
-    private BusUtil() {
+public class BusUtils {
+    private BusUtils() {
         throw new IllegalInstanceException();
     }
 

@@ -30,6 +30,7 @@ android {
             versionNameSuffix "_dev"
             minifyEnabled false
             debuggable true
+            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", "SERVER_API_URL", "\"www.baidu.com\"" //需要根据正式服务器url改动
         }
@@ -51,6 +52,13 @@ android {
             keyAlias "baseandroid"
             keyPassword "basepassword"
         }
+
+        debug {
+            storeFile file("keystore/debug.keystore")
+            storePassword "storedebug"
+            keyAlias "basedebug"
+            keyPassword "keydebug"
+        }
     }
 
     compileOptions {
@@ -65,6 +73,10 @@ android {
         exclude 'META-INF/ASL2.0'
         exclude 'META-INF/NOTICE'
         exclude 'META-INF/LICENSE'
+    }
+
+    lintOptions {
+        abortOnError false
     }
 }
 

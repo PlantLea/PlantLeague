@@ -1,7 +1,9 @@
 package com.team.baseapp.baseapp.util;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.widget.Toast;
 
@@ -50,5 +52,32 @@ public class UIUtils {
         Toast toast = new Toast(context);
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
+    }
+
+    /**
+     * px 转换 dp helper
+     *
+     * @param px
+     * @return
+     */
+    public static float pxToDp(float px) {
+        //获得 density per inch
+        float densityDpi = Resources.getSystem().getDisplayMetrics().densityDpi;
+        /**
+         * dp = px / (densityDpi / 160)
+         */
+        return px / (densityDpi / DisplayMetrics.DENSITY_DEFAULT);
+    }
+
+    /**
+     * dp 转换 px helper
+     *
+     * @param dp
+     * @return
+     */
+    public static float dpToPx(int dp) {
+        //获得 density per inch
+        float densityDpi = Resources.getSystem().getDisplayMetrics().densityDpi;
+        return dp * (densityDpi / DisplayMetrics.DENSITY_DEFAULT);
     }
 }
