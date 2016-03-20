@@ -22,7 +22,7 @@ android {
             minifyEnabled false
             debuggable true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "SERVER_API_URL", "\"www.baidu.com\"" //需要根据服务器url改动
+            buildConfigField "String", "SERVICE_API_URL", "\"www.baidu.com\"" //需要根据服务器url改动
         }
 
         debug {
@@ -32,7 +32,7 @@ android {
             debuggable true
             signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "SERVER_API_URL", "\"www.baidu.com\"" //需要根据正式服务器url改动
+            buildConfigField "String", "SERVICE_API_URL", "\"www.baidu.com\"" //需要根据正式服务器url改动
         }
     }
 
@@ -88,6 +88,8 @@ dependencies {
     compile deps.design
     compile deps.gson
     compile deps.retrofit
+    compile deps.gson_converter
+    compile deps.rxjava_adapter
     compile deps.rxjava
     compile deps.eventbus
 }

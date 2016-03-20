@@ -5,8 +5,8 @@ ext {
             compileVersion   : 23,
             minSdk           : 16,
             targetSdk        : 23,
-            versionCode     : 1,
-            versionName     : "1.0.0",
+            versionCode      : 1,
+            versionName      : "1.0.0",
     ]
 
     libs = [
@@ -26,18 +26,20 @@ ext {
     ]
 
     dependencies = [
-        //common
-        v4                :  "com.android.support:support-v4:${libs.supportVersion}",
-        v7                :  "com.android.support:appcompat-v7:${libs.supportVersion}",
-        design            :  "com.android.support:design:${libs.supportVersion}",
-        recyclerview      :  "com.android.support:recyclerview-v7:${libs.supportVersion}",
-        glide             :  "com.github.bumptech.glide:glide:${libs.glide}",
-        retrofit          :  "com.squareup.retrofit2:retrofit:${libs.retrofit}",
-        gson              :  "com.google.code.gson:gson:${libs.gson}",
-        rxjava            :  "io.reactivex:rxjava:${libs.rxjava}",
-        eventbus          :  "org.greenrobot:eventbus:${libs.eventbus}",
-        debugleakcanary   :  "com.squareup.leakcanary:leakcanary-android:${libs.leakcanary}",
-        releaseleakcanary :  "com.squareup.leakcanary:leakcanary-android-no-op:${libs.leakcanary}"
+            //common
+            v4               : "com.android.support:support-v4:${libs.supportVersion}",
+            v7               : "com.android.support:appcompat-v7:${libs.supportVersion}",
+            design           : "com.android.support:design:${libs.supportVersion}",
+            recyclerview     : "com.android.support:recyclerview-v7:${libs.supportVersion}",
+            glide            : "com.github.bumptech.glide:glide:${libs.glide}",
+            retrofit         : "com.squareup.retrofit2:retrofit:${libs.retrofit}",
+            gson_converter   : "com.squareup.retrofit2:converter-gson:${libs.retrofit}",
+            rxjava_adapter   : "com.squareup.retrofit2:adapter-rxjava:${libs.retrofit}",
+            gson             : "com.google.code.gson:gson:${libs.gson}",
+            rxjava           : "io.reactivex:rxjava:${libs.rxjava}",
+            eventbus         : "org.greenrobot:eventbus:${libs.eventbus}",
+            debugleakcanary  : "com.squareup.leakcanary:leakcanary-android:${libs.leakcanary}",
+            releaseleakcanary: "com.squareup.leakcanary:leakcanary-android-no-op:${libs.leakcanary}"
     ]
 
     javaVersion = JavaVersion.VERSION_1_8
