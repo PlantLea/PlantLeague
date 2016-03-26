@@ -42,7 +42,7 @@ ext {
             releaseleakcanary: "com.squareup.leakcanary:leakcanary-android-no-op:${libs.leakcanary}"
     ]
 
-    javaVersion = JavaVersion.VERSION_1_8
+    javaVersion = JavaVersion.VERSION_1_7
 }
 
 allprojects {

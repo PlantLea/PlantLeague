@@ -24,6 +24,7 @@ public class ApiModule {
     private ApiModule() {
         OkHttpClient.Builder client = new OkHttpClient.Builder();
         client.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
+        //TODO Interceptor增加
 
         retrofit = new Retrofit
                 .Builder()

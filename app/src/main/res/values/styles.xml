@@ -5,4 +5,12 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- Base application theme. -->
+    <style name="SplashAppTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:windowNoTitle">true</item>
+        <!--<item name="android:windowFullscreen">true</item>-->
+        <!-- 自定义的启动背景 -->
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+    </style>
 </resources>

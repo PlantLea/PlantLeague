@@ -1,4 +1,4 @@
-package com.team.baseapp.baseapp.ui.activity;
+package com.team.baseapp.baseapp.ui.base;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;

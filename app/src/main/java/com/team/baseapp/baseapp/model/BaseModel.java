@@ -4,8 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
+ * 处理data model
  * Created by lynnzc on 16-3-15.
  */
-public class BaseModel {
+public interface BaseModel {
 
 }

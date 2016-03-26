@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/shape_default_login" />
+
+    <EditText
+        android:id="@+id/et_user"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/iv_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/shape_et_bg"
+        android:gravity="center_vertical"
+        android:hint="@string/login_user"
+        android:maxLines="1"
+        android:paddingLeft="24dp" />
+
+    <EditText
+        android:id="@+id/et_psw"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/et_user"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/shape_et_bg"
+        android:gravity="center_vertical"
+        android:hint="@string/login_psw"
+        android:maxLines="1"
+        android:paddingLeft="24dp" />
+
+    <CheckBox
+        android:id="@+id/cb_rm_psw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/et_psw"
+        android:layout_below="@id/et_psw"
+        android:layout_marginTop="3dp"
+        android:button="@drawable/shape_checked"
+        android:gravity="center"
+        android:paddingLeft="2dp"
+        android:text="@string/login_rem_usr"
+        android:textColor="#3358d2"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/btn_login"
+        android:layout_below="@id/btn_login"
+        android:layout_marginTop="3dp"
+        android:gravity="center"
+        android:text="@string/login_register_usr"
+        android:textColor="#3358d2"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/et_psw"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/shape_btn_login"
+        android:text="@string/login_btn"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+</RelativeLayout>

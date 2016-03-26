@@ -13,7 +13,7 @@ android {
         targetSdkVersion cfg.targetSdk
         versionCode cfg.versionCode
         versionName cfg.versionName
-
+        multiDexEnabled true
         buildConfigField "long", "BUILD_TIME", System.currentTimeMillis() + "L"
     }
 
@@ -30,7 +30,7 @@ android {
             versionNameSuffix "_dev"
             minifyEnabled false
             debuggable true
-            signingConfig signingConfigs.debug
+//            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", "SERVICE_API_URL", "\"www.baidu.com\"" //需要根据正式服务器url改动
         }
@@ -53,12 +53,12 @@ android {
             keyPassword "basepassword"
         }
 
-        debug {
-            storeFile file("keystore/debug.keystore")
-            storePassword "storedebug"
-            keyAlias "basedebug"
-            keyPassword "keydebug"
-        }
+//        debug {
+//            storeFile file("keystore/debug.keystore")
+//            storePassword "storedebug"
+//            keyAlias "basedebug"
+//            keyPassword "keydebug"
+//        }
     }
 
     compileOptions {

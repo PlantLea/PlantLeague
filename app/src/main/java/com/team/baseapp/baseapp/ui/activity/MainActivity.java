@@ -1,12 +1,15 @@
-package com.team.baseapp.baseapp.ui;
+package com.team.baseapp.baseapp.ui.activity;
 
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.team.baseapp.baseapp.R;
-import com.team.baseapp.baseapp.api.ApiModule;
-import com.team.baseapp.baseapp.ui.activity.BaseActivity;
+import com.team.baseapp.baseapp.ui.base.BaseActivity;
 
+/**
+ * 主界面
+ * 没有写什么, 待完成
+ */
 public class MainActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
