@@ -1,0 +1,34 @@
+# build application files
+*.apk
+*.ap_
+
+# Gradle cache
+.gradle
+
+# local configuration file
+/local.properties
+
+# local idea workplace
+/.idea/workspace.xml
+/.idea/libraries
+
+# windows thumbnail db
+.DS_Store
+
+/build
+/captures
+
+# Eclipse project files
+.classpath
+.project
+
+# generated files
+bin/
+gen/
+out/
+build/
+
+# IDEA/Android Studio project files, because
+# the project can be imported from settings.gradle
+.idea
+*.iml
