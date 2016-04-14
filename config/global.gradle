@@ -1,7 +1,7 @@
 ext {
     cfg = [
             applicationId    : "com.team.baseapp",
-            buildToolsVersion: "22.0.0",
+            buildToolsVersion: "23.0.1",
             compileVersion   : 23,
             minSdk           : 16,
             targetSdk        : 23,

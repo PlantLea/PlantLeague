@@ -58,13 +58,14 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             @Override
             public void onSuccess() {
                 //注册成功
+                UIUtils.showToast(RegisterActivity.this, "注册成功");
                 actionToLogin();
             }
 
             @Override
             public void onFailed() {
                 //注册失败
-                UIUtils.showToast(RegisterActivity.this, "注册失败");
+                UIUtils.showToast(RegisterActivity.this, "注册失败, 用户名可能重复");
             }
         });
     }
@@ -87,7 +88,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     private void register() {
         mRegisterModel
                 .register(et_user.getText().toString().trim(),
-                        et_psw.getText().toString().trim());
+                        et_psw.getText().toString().trim(),
+                        et_repsw.getText().toString().trim());
     }
 
     /**
