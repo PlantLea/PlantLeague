@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BaseApp</string>
+    <string name="app_name">剁手买</string>
     <string name="action_settings">Settings</string>
 
     <string name="login_user">用户名</string>

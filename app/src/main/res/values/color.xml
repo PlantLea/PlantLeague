@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorMain">#3358d2</color>
+    <color name="colorGreyBg">#f3f3f3</color>
+    <color name="colorGreyDark">#bfbfbf</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorTrans">#00ffffff</color>
+    <color name="colorRipple">#dddddd</color>
+</resources>
