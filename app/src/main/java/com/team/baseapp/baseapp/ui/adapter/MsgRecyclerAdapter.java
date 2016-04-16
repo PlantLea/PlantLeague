@@ -19,7 +19,7 @@ import java.util.List;
  * msg recyclerview adapter
  * Created by lynnzc on 16-4-16.
  */
-public class MsgRecyclerAdapter extends RecyclerView.Adapter {
+public class MsgRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context context;
     private LayoutInflater layoutInflater;
     private List<Msg> msgs;
