@@ -1,12 +1,15 @@
 package com.team.baseapp.baseapp.entity;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
  * 订单 entity
  * Created by lynnzc on 16-4-16.
  */
-public class Order {
+public class Order implements Parcelable {
     //订单id
     private String orderId;
     //订单商品
@@ -87,4 +90,61 @@ public class Order {
     public void setStatus(int status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId='" + orderId + '\'' +
+                ", goods=" + goods +
+                ", coupon=" + coupon +
+                ", totalPrice=" + totalPrice +
+                ", address='" + address + '\'' +
+                ", owner='" + owner + '\'' +
+                ", phone='" + phone + '\'' +
+                ", status=" + status +
+                '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.orderId);
+        dest.writeTypedList(goods);
+        dest.writeInt(this.coupon);
+        dest.writeInt(this.totalPrice);
+        dest.writeString(this.address);
+        dest.writeString(this.owner);
+        dest.writeString(this.phone);
+        dest.writeInt(this.status);
+    }
+
+    public Order() {
+    }
+
+    protected Order(Parcel in) {
+        this.orderId = in.readString();
+        this.goods = in.createTypedArrayList(Good.CREATOR);
+        this.coupon = in.readInt();
+        this.totalPrice = in.readInt();
+        this.address = in.readString();
+        this.owner = in.readString();
+        this.phone = in.readString();
+        this.status = in.readInt();
+    }
+
+    public static final Parcelable.Creator<Order> CREATOR = new Parcelable.Creator<Order>() {
+        @Override
+        public Order createFromParcel(Parcel source) {
+            return new Order(source);
+        }
+
+        @Override
+        public Order[] newArray(int size) {
+            return new Order[size];
+        }
+    };
 }

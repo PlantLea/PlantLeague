@@ -8,13 +8,13 @@ import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.ui.base.BaseFragment;
 
 /**
- * 发现 fragment
+ * 购物车 fragment
  * Created by lynnzc on 16-4-15.
  */
-public class ExploreFragment extends BaseFragment {
+public class ShipCartFragment extends BaseFragment {
     @Override
     protected int getLayoutResource() {
-        return R.layout.fragment_explore;
+        return R.layout.fragment_ship_cart;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class ExploreFragment extends BaseFragment {
     @Override
     protected void initHeaderView(@NonNull View header) {
         TextView tv_title = (TextView) header.findViewById(R.id.tv_title);
-        tv_title.setText("发现");
+        tv_title.setText("购物车");
     }
 
     @Override

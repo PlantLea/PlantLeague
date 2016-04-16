@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.team.baseapp.baseapp.R;
-import com.team.baseapp.baseapp.ui.fragment.ExploreFragment;
+import com.team.baseapp.baseapp.ui.fragment.ShipCartFragment;
 import com.team.baseapp.baseapp.ui.fragment.HomeFragment;
 import com.team.baseapp.baseapp.ui.fragment.MeFragment;
 import com.team.baseapp.baseapp.ui.fragment.MsgFragment;
@@ -51,11 +51,11 @@ public class BottomBarAdapter extends FragmentPagerAdapter {
                 //首页
                 return new HomeFragment();
             case 2:
-                //发现
-                return new ExploreFragment();
-            case 3:
                 //消息
                 return new MsgFragment();
+            case 3:
+                //购物车
+                return new ShipCartFragment();
             case 4:
                 //我的
                 return new MeFragment();

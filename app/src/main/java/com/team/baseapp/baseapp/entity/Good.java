@@ -1,16 +1,19 @@
 package com.team.baseapp.baseapp.entity;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * 商品 entity
  * Created by lynnzc on 16-4-16.
  */
-public class Good {
+public class Good implements Parcelable {
     //商品名
     private String name;
     //商品描述
     private String description;
     //商品图片
-    private String image;
+    private Image image;
     //商品价格
     private int price;
     //发布者
@@ -34,11 +37,11 @@ public class Good {
         this.description = description;
     }
 
-    public String getImage() {
+    public Image getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Image image) {
         this.image = image;
     }
 
@@ -65,4 +68,55 @@ public class Good {
     public void setCount(int count) {
         this.count = count;
     }
+
+    @Override
+    public String toString() {
+        return "Good{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", image=" + image +
+                ", price=" + price +
+                ", user=" + user +
+                ", count=" + count +
+                '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.name);
+        dest.writeString(this.description);
+        dest.writeParcelable(this.image, flags);
+        dest.writeInt(this.price);
+        dest.writeParcelable(this.user, flags);
+        dest.writeInt(this.count);
+    }
+
+    public Good() {
+    }
+
+    protected Good(Parcel in) {
+        this.name = in.readString();
+        this.description = in.readString();
+        this.image = in.readParcelable(Image.class.getClassLoader());
+        this.price = in.readInt();
+        this.user = in.readParcelable(User.class.getClassLoader());
+        this.count = in.readInt();
+    }
+
+    public static final Parcelable.Creator<Good> CREATOR = new Parcelable.Creator<Good>() {
+        @Override
+        public Good createFromParcel(Parcel source) {
+            return new Good(source);
+        }
+
+        @Override
+        public Good[] newArray(int size) {
+            return new Good[size];
+        }
+    };
 }
