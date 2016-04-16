@@ -15,6 +15,7 @@ import com.team.baseapp.baseapp.model.MenuModel;
 import java.util.List;
 
 /**
+ * 我页面 recyclerview adapter
  * Created by lynnzc on 16-4-16.
  */
 public class MeRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {

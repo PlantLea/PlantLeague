@@ -12,6 +12,7 @@ import com.team.baseapp.baseapp.ui.adapter.MeRecyclerAdapter;
 import com.team.baseapp.baseapp.ui.base.BaseFragment;
 import com.team.baseapp.baseapp.ui.widget.DividerItemDecoration;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -95,6 +96,7 @@ public class MeFragment extends BaseFragment {
      * 初始化menu
      */
     private void initMenus() {
+        menus = new ArrayList<>();
         for (int i = 0; i < titles.length; i++) {
             MenuModel menuModel = new MenuModel(titles[i], iconRes[i]);
             menus.add(menuModel);
