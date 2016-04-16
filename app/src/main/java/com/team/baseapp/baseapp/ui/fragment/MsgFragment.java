@@ -1,5 +1,6 @@
 package com.team.baseapp.baseapp.ui.fragment;
 
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 
@@ -22,7 +23,17 @@ public class MsgFragment extends BaseFragment {
     }
 
     @Override
-    public void initHeader(View header) {
+    protected void initListener() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    protected void initHeaderView(@NonNull View header) {
         TextView tv_title = (TextView) header.findViewById(R.id.tv_title);
         tv_title.setText("消息");
     }

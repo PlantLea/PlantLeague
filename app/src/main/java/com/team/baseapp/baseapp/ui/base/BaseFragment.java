@@ -2,6 +2,7 @@ package com.team.baseapp.baseapp.ui.base;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -23,6 +24,10 @@ public abstract class BaseFragment extends Fragment implements HeaderView {
         View view = inflater.inflate(getLayoutResource(), container, false);
         initHeader(attachHeader((ViewGroup) view));
         initView();
+        //init listener
+        initListener();
+        //init data
+        initData();
         return view;
     }
 
@@ -44,12 +49,25 @@ public abstract class BaseFragment extends Fragment implements HeaderView {
     protected abstract int getLayoutResource();
 
     /**
-     * 所有findViewById, 以及初始化相关的view component
+     * 所有主界面findViewById, 以及初始化相关的view component
      */
     protected abstract void initView();
 
+    protected abstract void initListener();
+
+    protected abstract void initData();
+
+    protected abstract void initHeaderView(@NonNull View header);
+
     @Override
-    public abstract void initHeader(View header);
+    public void initHeader(View header) {
+        if (header == null) {
+            //不显示header
+            return;
+        }
+
+        initHeaderView(header);
+    }
 
     @Override
     public boolean isHideHeader() {
@@ -62,7 +80,7 @@ public abstract class BaseFragment extends Fragment implements HeaderView {
 
     @Override
     public View attachHeader(ViewGroup parent) {
-        if (isHideHeader() || getHeaderRes() == 0) {
+        if (isHideHeader() || getHeaderRes() <= 0) {
             //不显示header
             return null;
         }
