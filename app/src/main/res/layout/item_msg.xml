@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:clickable="true"
+    android:orientation="horizontal"
+    android:paddingBottom="6dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingTop="6dp">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="58dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|center_vertical"
+        android:clickable="false"
+        android:scaleType="centerCrop"
+        tools:background="@color/colorMain" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_vertical"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:minWidth="150dp"
+        android:paddingLeft="70dp"
+        android:paddingTop="6dp"
+        android:textColor="@color/colorDark"
+        android:textSize="16sp"
+        tools:text="系统消息" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_vertical"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:minWidth="150dp"
+        android:paddingBottom="12dp"
+        android:paddingLeft="70dp"
+        android:textColor="@color/colorGreyDark"
+        android:textSize="12sp"
+        tools:text="还没有系统消息" />
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="20dp"
+        android:layout_gravity="right|center_vertical"
+        tools:background="@color/colorMain" />
+</FrameLayout>
