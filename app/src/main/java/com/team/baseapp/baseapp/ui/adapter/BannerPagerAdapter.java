@@ -4,8 +4,9 @@ import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
-import com.team.baseapp.baseapp.model.ImageModel;
+import com.team.baseapp.baseapp.model.BannerModel;
 import com.team.baseapp.baseapp.ui.widget.BannerViewPager;
 
 /**
@@ -16,23 +17,27 @@ public class BannerPagerAdapter extends PagerAdapter {
     //系数, 大于1, 尽量小
     private static final int COEFFIENT = 10;
     private BannerViewPager mViewPager;
-    private ImageModel mImageModel;
+    private BannerModel mBannerModel;
 
-    public BannerPagerAdapter(BannerViewPager viewPager, ImageModel imageModel) {
+    public BannerPagerAdapter(BannerViewPager viewPager, BannerModel bannerModel) {
         this.mViewPager = viewPager;
-        this.mImageModel = imageModel;
+        this.mBannerModel = bannerModel;
     }
 
     public BannerPagerAdapter(BannerViewPager viewPager) {
         this(viewPager, null);
     }
 
-    public void setImageModel(ImageModel imageModel) {
-        this.mImageModel = imageModel;
+    public BannerModel getBannerModel() {
+        return mBannerModel;
     }
 
-    public ImageModel getImageModel() {
-        return mImageModel;
+    public void setBannerModel(BannerModel bannerModel) {
+        this.mBannerModel = bannerModel;
+    }
+
+    public int getImageCount() {
+        return this.mBannerModel == null ? 0 : this.mBannerModel.getImageCount();
     }
 
     /**
@@ -42,14 +47,10 @@ public class BannerPagerAdapter extends PagerAdapter {
      */
     @Override
     public final int getCount() {
-        if (mImageModel == null) {
-            return 0;
-        }
-
-        long count = mImageModel.getImageCount();
+        long count = getImageCount();
         if (count > 1) {
             //至少大于一张才会轮播
-            count = mImageModel.getImageCount() * COEFFIENT;
+            count = getImageCount() * COEFFIENT;
             count = count > Integer.MAX_VALUE ? Integer.MAX_VALUE : count;
         }
         return (int) count;
@@ -62,21 +63,34 @@ public class BannerPagerAdapter extends PagerAdapter {
 
     @Override
     public final Object instantiateItem(ViewGroup container, int position) {
-        if (mImageModel == null) {
+        if (mBannerModel == null) {
             return null;
         }
 
-        position = position % mImageModel.getImageCount();
+        position = position % mBannerModel.getImageCount();
+        //init image
         ImageView bannerView = new ImageView(mViewPager.getContext());
-        bannerView.setBackgroundResource(mImageModel.getImageAt(position));
+        bannerView.setBackgroundResource(mBannerModel.getImageAt(position));
         container.addView(bannerView, ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
+        //init dot
+        View dot = new View(mViewPager.getContext());
+        dot.setBackgroundResource(mBannerModel.getDotAt(position));
+        //默认第一个为true, 其他false
+        dot.setEnabled(position == 0);
+        if (mViewPager.getDotContainer() != null) {
+            mViewPager.getDotContainer().addView(dot);
+        }
         return bannerView;
     }
 
     @Override
     public final void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((View) object);
+        if (mViewPager.getDotContainer() != null) {
+            //清楚dot
+            mViewPager.getDotContainer().removeViewAt(position);
+        }
     }
 
     @Override
@@ -88,10 +102,10 @@ public class BannerPagerAdapter extends PagerAdapter {
 
         int position = mViewPager.getCurrentItem();
         if (position == 0) {
-            position = mImageModel.getImageCount();
+            position = mBannerModel.getImageCount();
         } else if (position == getCount() - 1) {
             //最后一张图片
-            position = mImageModel.getImageCount() - 1;
+            position = mBannerModel.getImageCount() - 1;
         }
         mViewPager.setCurrentItem(position, false);
     }

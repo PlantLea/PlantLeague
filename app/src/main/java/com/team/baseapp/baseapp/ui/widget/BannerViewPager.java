@@ -2,10 +2,12 @@ package com.team.baseapp.baseapp.ui.widget;
 
 import android.content.Context;
 import android.support.annotation.IntDef;
-import android.support.v4.util.TimeUtils;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.widget.LinearLayout;
+
+import com.team.baseapp.baseapp.ui.adapter.BannerPagerAdapter;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -47,6 +49,10 @@ public class BannerViewPager extends ViewPager {
 
     //轮播周期
     private int cycle;
+    //dot container
+    private LinearLayout dotContainer = null;
+    //previous position
+    private int prePosition;
 
     public BannerViewPager(Context context) {
         super(context);
@@ -61,6 +67,38 @@ public class BannerViewPager extends ViewPager {
     private void init() {
         //使用默认周期
         this.cycle = DEFAULT_CYCLE;
+        this.prePosition = 0;
+
+        addOnPageChangeListener(new OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                //dot 跟着image变换同时变换
+                if (dotContainer != null) {
+                    int newPos = position % ((BannerPagerAdapter) getAdapter()).getImageCount();
+                    //切换状态
+                    dotContainer.getChildAt(newPos).setEnabled(true);
+                    //还原状态
+                    dotContainer.getChildAt(prePosition).setEnabled(false);
+                    prePosition = newPos;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
+    }
+
+    public void setDotContainer(LinearLayout dotContainer) {
+        this.dotContainer = dotContainer;
+    }
+
+    public LinearLayout getDotContainer() {
+        return dotContainer;
     }
 
     /**

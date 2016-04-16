@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.model.BannerModel;
@@ -103,6 +104,7 @@ public class HomeRecyclerAdapter
         private Context context;
         private BannerViewPager viewPager;
         private BannerPagerAdapter adapter;
+        private LinearLayout dotContainer;
 
         public BannerViewHolder(Context context, View itemView) {
             super(itemView);
@@ -114,27 +116,29 @@ public class HomeRecyclerAdapter
             if (container == null) {
                 return;
             }
+            dotContainer = (LinearLayout) container.findViewById(R.id.lly_dot);
             viewPager = (BannerViewPager) container.findViewById(R.id.vp_content);
-            adapter = new BannerPagerAdapter(viewPager, getImageModel());
+            viewPager.setDotContainer(dotContainer);
+            adapter = new BannerPagerAdapter(viewPager, getBannerModel());
         }
 
         /**
          * 刷新数据
          */
         public void refresh() {
-            //如果没有初始化成功, 刷新imagemodel
-            if (adapter.getImageModel() == null) {
-                adapter.setImageModel(getImageModel());
+            //如果没有初始化成功, 刷新bannermodel
+            if (adapter.getBannerModel() == null) {
+                adapter.setBannerModel(getBannerModel());
             }
 
             viewPager.setStatus(BannerViewPager.RESUME);
         }
 
-        private ImageModel getImageModel() {
+        private BannerModel getBannerModel() {
             if (getLayoutPosition() == 0) {
                 Object data = datas.get(getLayoutPosition());
                 if (data instanceof BannerModel) {
-                    return ((BannerModel) data).getImageModel();
+                    return ((BannerModel) data);
                 }
             }
             return null;
