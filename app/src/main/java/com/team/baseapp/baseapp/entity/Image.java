@@ -3,6 +3,7 @@ package com.team.baseapp.baseapp.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,7 +14,7 @@ public class Image implements Parcelable {
     //小图
     private String avatar;
     //图片列表
-    private List<String> images;
+    private List<Integer> images;
 
     public String getAvatar() {
         return avatar;
@@ -23,11 +24,11 @@ public class Image implements Parcelable {
         this.avatar = avatar;
     }
 
-    public List<String> getImages() {
+    public List<Integer> getImages() {
         return images;
     }
 
-    public void setImages(List<String> images) {
+    public void setImages(List<Integer> images) {
         this.images = images;
     }
 
@@ -47,7 +48,7 @@ public class Image implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.avatar);
-        dest.writeStringList(this.images);
+        dest.writeList(this.images);
     }
 
     public Image() {
@@ -55,10 +56,11 @@ public class Image implements Parcelable {
 
     protected Image(Parcel in) {
         this.avatar = in.readString();
-        this.images = in.createStringArrayList();
+        this.images = new ArrayList<Integer>();
+        in.readList(this.images, Integer.class.getClassLoader());
     }
 
-    public static final Parcelable.Creator<Image> CREATOR = new Parcelable.Creator<Image>() {
+    public static final Creator<Image> CREATOR = new Creator<Image>() {
         @Override
         public Image createFromParcel(Parcel source) {
             return new Image(source);
