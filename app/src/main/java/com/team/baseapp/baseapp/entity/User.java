@@ -37,6 +37,8 @@ public class User implements Parcelable {
     private List<Order> orders;
     //收藏
     private List<Good> marks;
+    //购物车
+    private List<Good> carts;
 
     public String getUsr() {
         return usr;
@@ -142,6 +144,14 @@ public class User implements Parcelable {
         this.addresss = addresss;
     }
 
+    public List<Good> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(List<Good> carts) {
+        this.carts = carts;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -158,6 +168,7 @@ public class User implements Parcelable {
                 ", solds=" + solds +
                 ", orders=" + orders +
                 ", marks=" + marks +
+                ", carts=" + carts +
                 '}';
     }
 
@@ -177,10 +188,11 @@ public class User implements Parcelable {
         dest.writeString(this.phone);
         dest.writeInt(this.balance);
         dest.writeTypedList(addresss);
-        dest.writeList(this.releases);
-        dest.writeList(this.solds);
-        dest.writeList(this.orders);
-        dest.writeList(this.marks);
+        dest.writeTypedList(releases);
+        dest.writeTypedList(solds);
+        dest.writeTypedList(orders);
+        dest.writeTypedList(marks);
+        dest.writeTypedList(carts);
     }
 
     public User() {
@@ -196,14 +208,11 @@ public class User implements Parcelable {
         this.phone = in.readString();
         this.balance = in.readInt();
         this.addresss = in.createTypedArrayList(Address.CREATOR);
-        this.releases = new ArrayList<Good>();
-        in.readList(this.releases, Good.class.getClassLoader());
-        this.solds = new ArrayList<Good>();
-        in.readList(this.solds, Good.class.getClassLoader());
-        this.orders = new ArrayList<Order>();
-        in.readList(this.orders, Order.class.getClassLoader());
-        this.marks = new ArrayList<Good>();
-        in.readList(this.marks, Good.class.getClassLoader());
+        this.releases = in.createTypedArrayList(Good.CREATOR);
+        this.solds = in.createTypedArrayList(Good.CREATOR);
+        this.orders = in.createTypedArrayList(Order.CREATOR);
+        this.marks = in.createTypedArrayList(Good.CREATOR);
+        this.carts = in.createTypedArrayList(Good.CREATOR);
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {

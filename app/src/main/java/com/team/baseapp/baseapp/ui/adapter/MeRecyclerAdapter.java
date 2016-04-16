@@ -1,7 +1,6 @@
 package com.team.baseapp.baseapp.ui.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +45,7 @@ public class MeRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         return menus == null ? 0 : menus.size();
     }
 
-    public static class MeMenuViewHolder extends RecyclerView.ViewHolder {
+    public class MeMenuViewHolder extends RecyclerView.ViewHolder {
         private Context context;
         private TextView tv_title;
         private ImageView iv_icon;
@@ -60,20 +59,31 @@ public class MeRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         private void initView(View v) {
             tv_title = (TextView) v.findViewById(R.id.tv_title);
             iv_icon = (ImageView) v.findViewById(R.id.iv_icon);
+            tv_title.setText(menus.get(getLayoutPosition()).getTitle());
+            iv_icon.setImageResource(menus.get(getLayoutPosition()).getResId());
 
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     switch (getLayoutPosition()) {
+                        //TODO all
                         case 0:
-                            //跳转
+                            //跳转发布
                             break;
                         case 1:
-                            //跳转
+                            //跳转售出
+                            break;
+                        case 2:
+                            //跳转到手
+                            break;
+                        case 3:
+                            //跳转收藏
+                            break;
+                        case 4:
+                            //跳转设置
                             break;
                         default:
                             //其他
-                            //TODO 其他消息
                             break;
                     }
                 }
@@ -83,6 +93,7 @@ public class MeRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         //刷新数据
         public void refresh(MenuModel menu) {
             tv_title.setText(menu.getTitle());
+            iv_icon.setImageResource(menu.getResId());
         }
     }
 }
