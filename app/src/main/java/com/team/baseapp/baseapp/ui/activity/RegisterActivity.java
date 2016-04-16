@@ -16,7 +16,7 @@ import com.team.baseapp.baseapp.util.UIUtils;
  * Created by m1830 on 16-3-27.
  */
 
-public class RegisterActivity extends BaseActivity implements View.OnClickListener{
+public class RegisterActivity extends BaseActivity implements View.OnClickListener {
     private Button btn_register;
     private EditText et_user;
     private EditText et_psw;
@@ -96,7 +96,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
      * 跳转到登陆页面
      */
     private void actionToLogin() {
-        startActivity(new Intent(this, LoginActivity.class));
+//        startActivity(new Intent(this, LoginActivity.class));
+        finish();
     }
 
 }

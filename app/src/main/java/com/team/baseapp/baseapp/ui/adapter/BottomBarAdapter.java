@@ -46,17 +46,17 @@ public class BottomBarAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
-            case 1:
+            case 0:
             default:
                 //首页
                 return new HomeFragment();
-            case 2:
+            case 1:
                 //消息
                 return new MsgFragment();
-            case 3:
+            case 2:
                 //购物车
                 return new ShipCartFragment();
-            case 4:
+            case 3:
                 //我的
                 return new MeFragment();
         }
@@ -73,7 +73,7 @@ public class BottomBarAdapter extends FragmentPagerAdapter {
      * @return resId
      */
     public View getCustomTabView(int position) {
-        if (position > PAGE_COUNT) {
+        if (position >= PAGE_COUNT) {
             //out of bound
             return null;
         }

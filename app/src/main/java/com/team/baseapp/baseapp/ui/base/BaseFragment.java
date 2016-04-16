@@ -23,12 +23,17 @@ public abstract class BaseFragment extends Fragment implements HeaderView {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(getLayoutResource(), container, false);
         initHeader(attachHeader((ViewGroup) view));
-        initView();
+        initView(view);
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         //init listener
         initListener();
         //init data
         initData();
-        return view;
     }
 
     @Override
@@ -51,7 +56,7 @@ public abstract class BaseFragment extends Fragment implements HeaderView {
     /**
      * 所有主界面findViewById, 以及初始化相关的view component
      */
-    protected abstract void initView();
+    protected abstract void initView(View v);
 
     protected abstract void initListener();
 
@@ -87,7 +92,7 @@ public abstract class BaseFragment extends Fragment implements HeaderView {
 
         View header = LayoutInflater.from(getContext()).inflate(getHeaderRes(), null);
         //加到顶部
-        parent.addView(header, -1);
+        parent.addView(header, 0);
         return header;
     }
 }

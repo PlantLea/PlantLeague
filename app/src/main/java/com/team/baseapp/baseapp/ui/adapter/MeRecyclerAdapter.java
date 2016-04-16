@@ -59,13 +59,13 @@ public class MeRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         private void initView(View v) {
             tv_title = (TextView) v.findViewById(R.id.tv_title);
             iv_icon = (ImageView) v.findViewById(R.id.iv_icon);
-            tv_title.setText(menus.get(getLayoutPosition()).getTitle());
-            iv_icon.setImageResource(menus.get(getLayoutPosition()).getResId());
+//            tv_title.setText(menus.get(getAdapterPosition()).getTitle());
+//            iv_icon.setImageResource(menus.get(getAdapterPosition()).getResId());
 
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    switch (getLayoutPosition()) {
+                    switch (getAdapterPosition()) {
                         //TODO all
                         case 0:
                             //跳转发布

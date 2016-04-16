@@ -130,5 +130,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private void actionToMain() {
         //跳转到主菜单
         startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 }

@@ -21,7 +21,7 @@ public class BusUtils {
     public static void register(Object context) {
         //如果还没有注册, 则注册
         if (!EventBus.getDefault().isRegistered(context)) {
-            EventBus.getDefault().register(context);
+//            EventBus.getDefault().register(context);
         }
     }
 
@@ -33,7 +33,7 @@ public class BusUtils {
     public static void unregister(Object context) {
         //如果已经注册了, 则取消注册
         if (EventBus.getDefault().isRegistered(context)) {
-            EventBus.getDefault().unregister(context);
+//            EventBus.getDefault().unregister(context);
         }
     }
 

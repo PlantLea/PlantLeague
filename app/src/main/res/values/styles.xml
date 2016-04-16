@@ -20,12 +20,9 @@
     </style>
 
     <style name="BottomBarStyle" parent="Widget.Design.TabLayout">
-        <item name="tabMaxWidth">48dp</item>
         <item name="tabIndicatorColor">@color/colorGreyBg</item>
         <item name="tabIndicatorHeight">0dp</item>
-        <item name="tabPaddingStart">12dp</item>
-        <item name="tabPaddingEnd">12dp</item>
-        <item name="tabBackground">@color/colorGreyBg</item>
-        <item name="tabSelectedTextColor">?android:textColorPrimary</item>
+        <item name="tabBackground">@color/colorMain</item>
+        <item name="tabSelectedTextColor">@color/colorMain</item>
     </style>
 </resources>

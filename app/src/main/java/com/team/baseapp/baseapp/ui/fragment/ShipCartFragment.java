@@ -28,11 +28,7 @@ public class ShipCartFragment extends BaseFragment {
     }
 
     @Override
-    protected void initView() {
-        View root = getView();
-        if (root == null) {
-            return;
-        }
+    protected void initView(View root) {
         initShipRecyclerView(root);
     }
 
