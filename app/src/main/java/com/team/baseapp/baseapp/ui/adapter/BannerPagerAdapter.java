@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.model.BannerModel;
 import com.team.baseapp.baseapp.ui.widget.BannerViewPager;
 
@@ -75,7 +76,11 @@ public class BannerPagerAdapter extends PagerAdapter {
                 ViewGroup.LayoutParams.MATCH_PARENT);
         //init dot
         View dot = new View(mViewPager.getContext());
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
+                5, //px
+                5);//px
         dot.setBackgroundResource(mBannerModel.getDotAt(position));
+        dot.setLayoutParams(params);
         //默认第一个为true, 其他false
         dot.setEnabled(position == 0);
         if (mViewPager.getDotContainer() != null) {
