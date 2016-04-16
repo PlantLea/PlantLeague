@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fl_ship_botom"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@color/colorGreyDark"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical|left"
+        android:gravity="center"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:text="收款"
+        android:textColor="@color/colorDark"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_total_price"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingLeft="54dp"
+        android:paddingRight="12dp"
+        android:textColor="@color/colorOrange"
+        android:textSize="16sp"
+        tools:text="￥188.00" />
+
+    <TextView
+        android:id="@+id/tv_apply"
+        android:layout_width="128dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|center_vertical"
+        android:background="@color/colorOrange"
+        android:gravity="center"
+        android:text="支付"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp" />
+</FrameLayout>

@@ -64,7 +64,7 @@
         android:layout_marginTop="36dp"
         android:background="@drawable/shape_btn_login"
         android:text="@string/login_btn"
-        android:textColor="#ffffff"
+        android:textColor="@color/colorWhite"
         android:textSize="18sp" />
 
     <TextView
@@ -74,8 +74,8 @@
         android:layout_alignRight="@id/btn_login"
         android:layout_below="@id/btn_login"
         android:layout_marginTop="3dp"
-        android:padding="4dp"
         android:gravity="center"
+        android:padding="4dp"
         android:text="@string/login_register_usr"
         android:textColor="#3358d2"
         android:textSize="15sp" />

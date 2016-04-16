@@ -9,4 +9,6 @@
     <string name="login_register">注册</string>
     <string name="login_register_usr">新用户吗?</string>
     <string name="login_rem_usr">记住密码</string>
+
+    <string name="one_price">￥ %1$s </string>
 </resources>
