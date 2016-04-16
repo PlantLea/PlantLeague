@@ -8,12 +8,13 @@ import android.view.MenuItem;
 import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.ui.adapter.BottomBarAdapter;
 import com.team.baseapp.baseapp.ui.base.BaseActivity;
+import com.team.baseapp.baseapp.ui.widget.UnScollableViewpager;
 
 /**
  * 主界面
  */
 public class MainActivity extends BaseActivity {
-    private ViewPager mViewPager;
+    private UnScollableViewpager mViewPager;
     private TabLayout mBottomBar;
 
     private BottomBarAdapter mBottomBarAdapter;
@@ -40,7 +41,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void findViewWithId() {
-        mViewPager = (ViewPager) findViewById(R.id.vp_content);
+        mViewPager = (UnScollableViewpager) findViewById(R.id.vp_content);
         mBottomBar = (TabLayout) findViewById(R.id.bottom_bar);
     }
 

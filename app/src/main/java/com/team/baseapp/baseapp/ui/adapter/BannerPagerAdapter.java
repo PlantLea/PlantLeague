@@ -112,4 +112,6 @@ public class BannerPagerAdapter extends PagerAdapter {
         }
         mViewPager.setCurrentItem(position, false);
     }
+
+
 }
