@@ -4,9 +4,7 @@ import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
-import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.model.BannerModel;
 import com.team.baseapp.baseapp.ui.widget.BannerViewPager;
 

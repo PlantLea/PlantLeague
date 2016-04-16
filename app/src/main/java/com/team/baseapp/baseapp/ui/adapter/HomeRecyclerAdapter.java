@@ -9,7 +9,6 @@ import android.widget.LinearLayout;
 
 import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.model.BannerModel;
-import com.team.baseapp.baseapp.model.ImageModel;
 import com.team.baseapp.baseapp.ui.widget.BannerViewPager;
 
 import java.util.List;
