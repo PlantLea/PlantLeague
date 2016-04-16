@@ -2,6 +2,7 @@ package com.team.baseapp.baseapp.ui.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -118,7 +119,7 @@ public class HomeRecyclerAdapter
             dotContainer = (LinearLayout) container.findViewById(R.id.lly_dot);
             viewPager = (BannerViewPager) container.findViewById(R.id.vp_content);
             viewPager.setDotContainer(dotContainer);
-            adapter = new BannerPagerAdapter(viewPager, getBannerModel());
+            adapter = new BannerPagerAdapter(viewPager, (BannerModel) datas.get(0));
         }
 
         /**
@@ -134,9 +135,10 @@ public class HomeRecyclerAdapter
         }
 
         private BannerModel getBannerModel() {
-            if (getLayoutPosition() == 0) {
-                Object data = datas.get(getLayoutPosition());
+            if (getAdapterPosition() == 0) {
+                Object data = datas.get(getAdapterPosition());
                 if (data instanceof BannerModel) {
+                    Log.e("log banner data:", "返回");
                     return ((BannerModel) data);
                 }
             }

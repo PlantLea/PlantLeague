@@ -1,12 +1,14 @@
 package com.team.baseapp.baseapp.ui.adapter;
 
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.team.baseapp.baseapp.model.BannerModel;
 import com.team.baseapp.baseapp.ui.widget.BannerViewPager;
+import com.team.baseapp.baseapp.util.UIUtils;
 
 /**
  * 轮播adapter
@@ -21,6 +23,7 @@ public class BannerPagerAdapter extends PagerAdapter {
     public BannerPagerAdapter(BannerViewPager viewPager, BannerModel bannerModel) {
         this.mViewPager = viewPager;
         this.mBannerModel = bannerModel;
+        Log.d("banner", "banner init");
     }
 
     public BannerPagerAdapter(BannerViewPager viewPager) {
@@ -33,6 +36,7 @@ public class BannerPagerAdapter extends PagerAdapter {
 
     public void setBannerModel(BannerModel bannerModel) {
         this.mBannerModel = bannerModel;
+        notifyDataSetChanged();
     }
 
     public int getImageCount() {
@@ -40,7 +44,7 @@ public class BannerPagerAdapter extends PagerAdapter {
     }
 
     /**
-     * 不能重写getCount
+     * 子类不能重写getCount
      *
      * @return
      */
@@ -62,10 +66,10 @@ public class BannerPagerAdapter extends PagerAdapter {
 
     @Override
     public final Object instantiateItem(ViewGroup container, int position) {
+        UIUtils.showToast(mViewPager.getContext(), "初始化图片轮播item");
         if (mBannerModel == null) {
             return null;
         }
-
         position = position % mBannerModel.getImageCount();
         //init image
         ImageView bannerView = new ImageView(mViewPager.getContext());

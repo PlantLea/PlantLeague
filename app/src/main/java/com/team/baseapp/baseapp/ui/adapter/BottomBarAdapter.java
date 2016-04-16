@@ -24,8 +24,8 @@ public class BottomBarAdapter extends FragmentPagerAdapter {
     //tab title
     private String[] tabTitles = new String[]{
             "首页",
-            "发现",
             "消息",
+            "购物车",
             "我的",
     };
     //tab icon

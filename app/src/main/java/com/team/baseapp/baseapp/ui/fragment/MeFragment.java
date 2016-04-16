@@ -65,7 +65,7 @@ public class MeFragment extends BaseFragment {
     @Override
     public void initHeaderView(@NonNull View header) {
         TextView tv_title = (TextView) header.findViewById(R.id.tv_title);
-        tv_title.setText("个人信息");
+        tv_title.setText("我的");
     }
 
     @Override
