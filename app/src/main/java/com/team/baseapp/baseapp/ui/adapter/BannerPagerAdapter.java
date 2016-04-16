@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.team.baseapp.baseapp.model.BannerModel;
 import com.team.baseapp.baseapp.ui.widget.BannerViewPager;
@@ -23,7 +24,6 @@ public class BannerPagerAdapter extends PagerAdapter {
     public BannerPagerAdapter(BannerViewPager viewPager, BannerModel bannerModel) {
         this.mViewPager = viewPager;
         this.mBannerModel = bannerModel;
-        Log.d("banner", "banner init");
     }
 
     public BannerPagerAdapter(BannerViewPager viewPager) {
@@ -66,28 +66,16 @@ public class BannerPagerAdapter extends PagerAdapter {
 
     @Override
     public final Object instantiateItem(ViewGroup container, int position) {
-        UIUtils.showToast(mViewPager.getContext(), "初始化图片轮播item");
         if (mBannerModel == null) {
             return null;
         }
+        Log.d("banner", "初始化");
         position = position % mBannerModel.getImageCount();
         //init image
         ImageView bannerView = new ImageView(mViewPager.getContext());
         bannerView.setBackgroundResource(mBannerModel.getImageAt(position));
         container.addView(bannerView, ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
-        //init dot
-        View dot = new View(mViewPager.getContext());
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
-                5, //px
-                5);//px
-        dot.setBackgroundResource(mBannerModel.getDotAt(position));
-        dot.setLayoutParams(params);
-        //默认第一个为true, 其他false
-        dot.setEnabled(position == 0);
-        if (mViewPager.getDotContainer() != null) {
-            mViewPager.getDotContainer().addView(dot);
-        }
         return bannerView;
     }
 
@@ -95,8 +83,8 @@ public class BannerPagerAdapter extends PagerAdapter {
     public final void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((View) object);
         if (mViewPager.getDotContainer() != null) {
-            //清楚dot
-            mViewPager.getDotContainer().removeViewAt(position);
+            //不用动dot
+//            mViewPager.getDotContainer().removeViewAt(position % getImageCount());
         }
     }
 

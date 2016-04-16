@@ -105,10 +105,12 @@ public class HomeRecyclerAdapter
         private BannerViewPager viewPager;
         private BannerPagerAdapter adapter;
         private LinearLayout dotContainer;
+        private boolean isDotInit;
 
         public BannerViewHolder(Context context, View itemView) {
             super(itemView);
             this.context = context;
+            isDotInit = false;
             init(itemView);
         }
 
@@ -119,7 +121,11 @@ public class HomeRecyclerAdapter
             dotContainer = (LinearLayout) container.findViewById(R.id.lly_dot);
             viewPager = (BannerViewPager) container.findViewById(R.id.vp_content);
             viewPager.setDotContainer(dotContainer);
-            adapter = new BannerPagerAdapter(viewPager, (BannerModel) datas.get(0));
+            adapter = new BannerPagerAdapter(viewPager, getBannerModel());
+            viewPager.setAdapter(adapter);
+            //初始化提示点
+            initDot(viewPager, getBannerModel());
+            viewPager.setCurrentItem(0);
         }
 
         /**
@@ -129,6 +135,10 @@ public class HomeRecyclerAdapter
             //如果没有初始化成功, 刷新bannermodel
             if (adapter.getBannerModel() == null) {
                 adapter.setBannerModel(getBannerModel());
+                if (!isDotInit) {
+                    //没有初始化, 初始化
+                    initDot(viewPager, getBannerModel());
+                }
             }
 
             viewPager.setStatus(BannerViewPager.RESUME);
@@ -138,11 +148,34 @@ public class HomeRecyclerAdapter
             if (getAdapterPosition() == 0) {
                 Object data = datas.get(getAdapterPosition());
                 if (data instanceof BannerModel) {
-                    Log.e("log banner data:", "返回");
                     return ((BannerModel) data);
                 }
             }
             return null;
+        }
+
+        private void initDot(BannerViewPager viewPager, BannerModel bannerModel) {
+            if (viewPager.getDotContainer() == null ||
+                    bannerModel == null) {
+                return;
+            }
+
+            for (int i = 0; i < bannerModel.getImageCount(); i++) {
+                //init dot
+                View dot = new View(viewPager.getContext());
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                        10, //px
+                        10);//px
+                params.setMargins(4, 0, 4, 0);
+                dot.setBackgroundResource(bannerModel.getDotAt(i));
+                dot.setLayoutParams(params);
+                //默认第一个为true, 其他false
+                dot.setEnabled(i == 0);
+                if (viewPager.getDotContainer() != null) {
+                    viewPager.getDotContainer().addView(dot);
+                }
+            }
+            isDotInit = true;
         }
 
         public void setStatus(@BannerViewPager.Life int status) {

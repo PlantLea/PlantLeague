@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.annotation.IntDef;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
@@ -77,7 +76,6 @@ public class BannerViewPager extends ViewPager {
 
             @Override
             public void onPageSelected(int position) {
-                Log.e("page", position + " ");
                 //dot 跟着image变换同时变换
                 if (dotContainer != null) {
                     int newPos = position % ((BannerPagerAdapter) getAdapter()).getImageCount();
