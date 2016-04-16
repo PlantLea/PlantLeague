@@ -65,7 +65,8 @@ public class MsgFragment extends BaseFragment {
         rv_msg.setLayoutManager(new LinearLayoutManager(getContext()));
         rv_msg.addItemDecoration(
                 new DividerItemDecoration(
-                        getResources().getDrawable(R.drawable.default_divider)));
+                        getResources().getDrawable(R.drawable.default_divider)
+                , false, true));
     }
 
     private void refreshMsg() {

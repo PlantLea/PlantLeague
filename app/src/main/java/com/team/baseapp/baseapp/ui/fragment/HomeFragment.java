@@ -10,6 +10,7 @@ import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.model.BannerModel;
 import com.team.baseapp.baseapp.ui.adapter.HomeRecyclerAdapter;
 import com.team.baseapp.baseapp.ui.base.BaseFragment;
+import com.team.baseapp.baseapp.ui.widget.DividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,6 +78,9 @@ public class HomeFragment extends BaseFragment {
                 }
             }
         });
+        rv_home.addItemDecoration(new DividerItemDecoration(
+                getContext().getResources().getDrawable(R.drawable.default_divider)
+                , false, true));
         rv_home.setLayoutManager(layoutManager);
     }
 
