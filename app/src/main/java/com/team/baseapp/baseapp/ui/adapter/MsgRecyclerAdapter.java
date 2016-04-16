@@ -89,6 +89,7 @@ public class MsgRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         public void refresh(Msg msg) {
             tv_title.setText(msg.getTitle());
             tv_content.setText(msg.getContent());
+            iv_icon.setImageResource(msg.getImage());
         }
 
         private void toSystemMsgActivity() {

@@ -10,7 +10,7 @@ import android.os.Parcelable;
 public class Msg implements Parcelable {
     private String title;
     private String content;
-    private String image;
+    private int image;
 
     public String getTitle() {
         return title;
@@ -37,11 +37,11 @@ public class Msg implements Parcelable {
         this.content = content;
     }
 
-    public String getImage() {
+    public int getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(int image) {
         this.image = image;
     }
 
@@ -55,7 +55,7 @@ public class Msg implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.title);
         dest.writeString(this.content);
-        dest.writeString(this.image);
+        dest.writeInt(this.image);
     }
 
     public Msg() {
@@ -64,7 +64,7 @@ public class Msg implements Parcelable {
     protected Msg(Parcel in) {
         this.title = in.readString();
         this.content = in.readString();
-        this.image = in.readString();
+        this.image = in.readInt();
     }
 
     public static final Parcelable.Creator<Msg> CREATOR = new Parcelable.Creator<Msg>() {

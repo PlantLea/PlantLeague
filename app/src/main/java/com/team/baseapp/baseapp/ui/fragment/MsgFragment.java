@@ -66,7 +66,7 @@ public class MsgFragment extends BaseFragment {
         rv_msg.addItemDecoration(
                 new DividerItemDecoration(
                         getResources().getDrawable(R.drawable.default_divider)
-                , false, true));
+                        , false, true));
     }
 
     private void refreshMsg() {
@@ -80,9 +80,11 @@ public class MsgFragment extends BaseFragment {
         Msg msg = new Msg();
         msg.setTitle("系统消息");
         msg.setContent("暂时没有系统消息");
+        msg.setImage(R.mipmap.ic_launcher);
         Msg orderMsg = new Msg();
         orderMsg.setTitle("订单信息");
         orderMsg.setContent("暂时没有订单信息");
+        orderMsg.setImage(R.mipmap.ic_launcher);
 
         msgs.add(msg);
         msgs.add(orderMsg);
