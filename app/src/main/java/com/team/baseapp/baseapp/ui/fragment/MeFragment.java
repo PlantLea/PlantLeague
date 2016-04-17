@@ -1,6 +1,5 @@
 package com.team.baseapp.baseapp.ui.fragment;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.team.baseapp.baseapp.R;
-import com.team.baseapp.baseapp.model.MenuModel;
+import com.team.baseapp.baseapp.entity.Menu;
 import com.team.baseapp.baseapp.model.UserModel;
 import com.team.baseapp.baseapp.ui.adapter.MeRecyclerAdapter;
 import com.team.baseapp.baseapp.ui.base.BaseFragment;
@@ -29,7 +28,7 @@ public class MeFragment extends BaseFragment
     private TextView tv_nickname;
     private TextView tv_des;
     private MeRecyclerAdapter mAdapter;
-    private List<MenuModel> menus;
+    private List<Menu> menus;
 
     //title
     private String[] titles = new String[]{
@@ -118,8 +117,8 @@ public class MeFragment extends BaseFragment
     private void initMenus() {
         menus = new ArrayList<>();
         for (int i = 0; i < titles.length; i++) {
-            MenuModel menuModel = new MenuModel(titles[i], iconRes[i]);
-            menus.add(menuModel);
+            Menu menu = new Menu(titles[i], iconRes[i]);
+            menus.add(menu);
         }
     }
 
