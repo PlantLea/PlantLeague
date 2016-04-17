@@ -42,6 +42,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
+            android:name=".ui.activity.PublishListActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name=".ui.activity.SplashActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"

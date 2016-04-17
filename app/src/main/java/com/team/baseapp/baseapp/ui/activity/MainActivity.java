@@ -75,11 +75,6 @@ public class MainActivity extends BaseActivity {
             TabLayout.Tab tab = mBottomBar.getTabAt(i);
             if (tab != null) {
                 tab.setCustomView(mBottomBarAdapter.getCustomTabView(i));
-
-//                if (i == 0) {
-//                    View v = mBottomBarAdapter.getCustomTabView(i);
-//                    v.setSelected(true);
-//                }
             }
         }
     }

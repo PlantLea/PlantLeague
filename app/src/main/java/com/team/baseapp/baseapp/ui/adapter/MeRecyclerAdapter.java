@@ -1,6 +1,7 @@
 package com.team.baseapp.baseapp.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.model.MenuModel;
+import com.team.baseapp.baseapp.ui.activity.PublishListActivity;
 
 import java.util.List;
 
@@ -69,6 +71,7 @@ public class MeRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                         //TODO all
                         case 0:
                             //跳转发布
+                            toActivity(PublishListActivity.class);
                             break;
                         case 1:
                             //跳转售出
@@ -94,6 +97,10 @@ public class MeRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         public void refresh(MenuModel menu) {
             tv_title.setText(menu.getTitle());
             iv_icon.setImageResource(menu.getResId());
+        }
+
+        private void toActivity(Class to) {
+            context.startActivity(new Intent(context, to));
         }
     }
 }
