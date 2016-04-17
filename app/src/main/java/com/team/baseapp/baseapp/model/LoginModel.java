@@ -70,7 +70,6 @@ public class LoginModel implements BaseModel {
     public void login(String usr, String psw) {
         if (verify(usr, psw)) {
             // 登录成功
-
             if (isRemembered()) {
                 // 记住账号密码
                 loginPrefs.edit()
@@ -114,6 +113,15 @@ public class LoginModel implements BaseModel {
             return "";
         }
         return user.getPsw();
+    }
+
+    //返回登录用户token, username作为token
+    public User getUserToken() {
+        //返回记录的登录信息
+        if (user != null) {
+            return Record.getInstance().getUser(user.getUsr());
+        }
+        return null;
     }
 
     /**

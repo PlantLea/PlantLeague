@@ -1,13 +1,16 @@
 package com.team.baseapp.baseapp.ui.fragment;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.model.MenuModel;
+import com.team.baseapp.baseapp.model.UserModel;
 import com.team.baseapp.baseapp.ui.adapter.MeRecyclerAdapter;
 import com.team.baseapp.baseapp.ui.base.BaseFragment;
 import com.team.baseapp.baseapp.ui.widget.DividerItemDecoration;
@@ -19,10 +22,15 @@ import java.util.List;
  * 我 fragment
  * Created by lynnzc on 16-4-15.
  */
-public class MeFragment extends BaseFragment {
+public class MeFragment extends BaseFragment
+        implements View.OnClickListener {
     private RecyclerView rv_me;
+    private ImageView iv_avatar;
+    private TextView tv_nickname;
+    private TextView tv_des;
     private MeRecyclerAdapter mAdapter;
     private List<MenuModel> menus;
+
     //title
     private String[] titles = new String[]{
             "发布",
@@ -31,11 +39,12 @@ public class MeFragment extends BaseFragment {
             "收藏",
             "设置"
     };
+
     //icon
     private int[] iconRes = new int[]{
             R.drawable.ic_publish_menu,
-            R.drawable.ic_buy_menu,
             R.drawable.ic_sold_menu,
+            R.drawable.ic_buy_menu,
             R.drawable.ic_bookmark_menu,
             R.drawable.ic_setting_menu
     };
@@ -47,17 +56,21 @@ public class MeFragment extends BaseFragment {
 
     @Override
     protected void initView(View root) {
+        tv_des = (TextView) root.findViewById(R.id.tv_des);
+        tv_nickname = (TextView) root.findViewById(R.id.tv_nickname);
+        iv_avatar = (ImageView) root.findViewById(R.id.iv_avatar);
         initMeRecyclerView(root);
     }
 
     @Override
     protected void initListener() {
-
+        iv_avatar.setOnClickListener(this);
     }
 
     @Override
     protected void initData() {
         initMenus();
+        initInfo();
         mAdapter = new MeRecyclerAdapter(getContext(), menus);
         rv_me.setAdapter(mAdapter);
     }
@@ -72,6 +85,17 @@ public class MeFragment extends BaseFragment {
     public int getHeaderRes() {
         //返回 < 0 则不实现
         return R.layout.include_header;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.iv_avatar:
+                toEditUserActivity();
+                break;
+            default:
+                break;
+        }
     }
 
     /**
@@ -97,5 +121,25 @@ public class MeFragment extends BaseFragment {
             MenuModel menuModel = new MenuModel(titles[i], iconRes[i]);
             menus.add(menuModel);
         }
+    }
+
+    /**
+     * 初始化用户个人状态信息
+     */
+    private void initInfo() {
+        if (UserModel.getInstance().isLogin()) {
+            //登录成功, 刷新个人信息
+            tv_nickname.setText(UserModel.getInstance().getNickname());
+            tv_des.setText(UserModel.getInstance().getDescription());
+            iv_avatar.setImageResource(UserModel.getInstance().getAvatar());
+        }
+    }
+
+    /**
+     * 跳转到用户信息页面
+     */
+    private void toEditUserActivity() {
+        //TODO
+//        getContext().startActivity(new Intent(getContext(), EditUserActivity.class));
     }
 }

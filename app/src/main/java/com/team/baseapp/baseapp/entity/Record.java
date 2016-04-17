@@ -18,7 +18,9 @@ public class Record {
         User initUser = new User();
         initUser.setUsr("admin");
         initUser.setPsw("1234");
-        initUser.setAvatar(R.mipmap.ic_launcher);
+        initUser.setAvatar(R.drawable.ic_default_avatar);
+        initUser.setNickname("剁手开挂员");
+        initUser.setDescription("想剁谁就剁谁,　不服来买啊!");
         //添加默认用户
         add(initUser);
     }
@@ -73,5 +75,19 @@ public class Record {
             }
         }
         return false;
+    }
+
+    /**
+     * 根据用户账号, 返回记录的用户信息
+     *
+     * @return
+     */
+    public User getUser(String useraccount) {
+        for (User user : record) {
+            if (user.getUsr().equals(useraccount)) {
+                return user;
+            }
+        }
+        return null;
     }
 }

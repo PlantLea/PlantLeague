@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.model.MenuModel;
 import com.team.baseapp.baseapp.ui.activity.PublishListActivity;
+import com.team.baseapp.baseapp.ui.activity.SettingActivity;
 
 import java.util.List;
 
@@ -84,6 +85,7 @@ public class MeRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                             break;
                         case 4:
                             //跳转设置
+                            toActivity(SettingActivity.class);
                             break;
                         default:
                             //其他

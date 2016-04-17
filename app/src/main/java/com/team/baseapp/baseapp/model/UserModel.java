@@ -1,5 +1,6 @@
 package com.team.baseapp.baseapp.model;
 
+import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.entity.User;
 
 /**
@@ -27,5 +28,28 @@ public class UserModel {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    /**
+     * 返回是否登录
+     *
+     * @return
+     */
+    public boolean isLogin() {
+        return user != null &&
+                user.getUsr() != null &&
+                !user.getUsr().equals("");
+    }
+
+    public String getNickname() {
+        return user == null ? "" : user.getNickname();
+    }
+
+    public String getDescription() {
+        return user == null ? "" : user.getDescription();
+    }
+
+    public int getAvatar() {
+        return user == null ? R.drawable.ic_default_avatar : user.getAvatar();
     }
 }

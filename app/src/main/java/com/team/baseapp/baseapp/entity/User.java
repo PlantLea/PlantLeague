@@ -198,6 +198,11 @@ public class User implements Parcelable {
     public User() {
     }
 
+    public User(String usr, String psw) {
+        this.usr = usr;
+        this.psw = psw;
+    }
+
     protected User(Parcel in) {
         this.usr = in.readString();
         this.psw = in.readString();

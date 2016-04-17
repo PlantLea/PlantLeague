@@ -8,22 +8,22 @@ import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.ui.base.BaseActivity;
 
 /**
- * 发布商品 activity
+ * 设置　activity
  * Created by lynnzc on 16-4-17.
  */
-public class PublishGoodActivity extends BaseActivity
+public class SettingActivity extends BaseActivity
         implements View.OnClickListener {
     private ImageView iv_left;
     private TextView tv_title;
 
     @Override
     protected int getLayoutResource() {
-        return R.layout.activity_publish_good;
+        return R.layout.activity_setting;
     }
 
     @Override
     protected void initView() {
-        initHeader();
+        intiHeader();
     }
 
     @Override
@@ -45,16 +45,20 @@ public class PublishGoodActivity extends BaseActivity
         }
     }
 
-    private void initHeader() {
+    /**
+     * 初始化header
+     */
+    private void intiHeader() {
         tv_title = (TextView) findViewById(R.id.tv_title);
         iv_left = (ImageView) findViewById(R.id.iv_left);
+
         iv_left.setVisibility(View.VISIBLE);
         iv_left.setImageResource(R.drawable.ic_left_arrow);
-        tv_title.setText("发布");
+        tv_title.setText("设置");
     }
 
     /**
-     * 返回 click
+     * 返回
      */
     private void onBackClicked() {
         finish();

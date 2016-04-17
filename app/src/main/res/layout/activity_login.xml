@@ -9,7 +9,7 @@
         android:layout_height="96dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp"
-        android:background="@drawable/shape_default_login" />
+        android:background="@mipmap/ic_logo" />
 
     <EditText
         android:id="@+id/et_user"

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.model.LoginModel;
+import com.team.baseapp.baseapp.model.UserModel;
 import com.team.baseapp.baseapp.ui.base.BaseActivity;
 import com.team.baseapp.baseapp.util.UIUtils;
 
@@ -75,6 +76,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             @Override
             public void onSuccess() {
                 //登录成功
+                keepUserToken();
                 actionToMain();
             }
 
@@ -120,7 +122,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
      * 跳转到注册页面
      */
     private void actionToRegister() {
-        //TODO 跳转到注册
+        //跳转到注册
         startActivity(new Intent(this, RegisterActivity.class));
     }
 
@@ -131,5 +133,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         //跳转到主菜单
         startActivity(new Intent(this, MainActivity.class));
         finish();
+    }
+
+    /**
+     * 登录成功, 保存账号信息
+     */
+    private void keepUserToken() {
+        //保存用户登录状态
+        UserModel.getInstance().setUser(mLoginModel.getUserToken());
     }
 }

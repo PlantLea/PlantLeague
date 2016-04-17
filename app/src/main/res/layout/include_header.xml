@@ -11,12 +11,12 @@
         android:id="@+id/iv_left"
         android:layout_width="48dp"
         android:layout_height="match_parent"
-        android:paddingLeft="10dp"
+        android:layout_gravity="center_vertical|left"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
         android:paddingRight="12dp"
         android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:layout_gravity="center_vertical|left"
-        android:visibility="visible"
+        android:visibility="gone"
         tools:src="@drawable/ic_left_arrow" />
 
     <TextView
@@ -36,6 +36,10 @@
         android:layout_width="48dp"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical|right"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
         android:visibility="gone"
-        tools:background="@color/colorRipple" />
+        tools:src="@drawable/ic_add" />
 </FrameLayout>
