@@ -11,9 +11,13 @@
         android:id="@+id/iv_left"
         android:layout_width="48dp"
         android:layout_height="match_parent"
+        android:paddingLeft="8dp"
+        android:paddingRight="12dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
         android:layout_gravity="center_vertical|left"
-        android:visibility="gone"
-        tools:background="@color/colorRipple" />
+        android:visibility="visible"
+        tools:src="@drawable/ic_left_arrow" />
 
     <TextView
         android:id="@+id/tv_title"

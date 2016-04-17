@@ -30,10 +30,10 @@ public class BottomBarAdapter extends FragmentPagerAdapter {
     };
     //tab icon
     private int[] tabIcons = new int[]{
-            R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher
+            R.drawable.selector_home,
+            R.drawable.selector_msg,
+            R.drawable.selector_cart,
+            R.drawable.selector_me
     };
 
     private Context context;
@@ -83,6 +83,9 @@ public class BottomBarAdapter extends FragmentPagerAdapter {
         ImageView iv_tab = (ImageView) tab.findViewById(R.id.iv_tab);
         tv_tab.setText(tabTitles[position]);
         iv_tab.setImageResource(tabIcons[position]);
+        if (position == 0) {
+            tab.setSelected(true);
+        }
         return tab;
     }
 }

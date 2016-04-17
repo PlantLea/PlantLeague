@@ -4,6 +4,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.ui.adapter.BottomBarAdapter;
@@ -68,13 +69,18 @@ public class MainActivity extends BaseActivity {
 
     //自定义bottom bar tab view
     private void initTabsCustomView() {
+        //默认显示首页
+        mViewPager.setCurrentItem(0);
         for (int i = 0; i < mBottomBar.getTabCount(); i++) {
             TabLayout.Tab tab = mBottomBar.getTabAt(i);
             if (tab != null) {
                 tab.setCustomView(mBottomBarAdapter.getCustomTabView(i));
+
+//                if (i == 0) {
+//                    View v = mBottomBarAdapter.getCustomTabView(i);
+//                    v.setSelected(true);
+//                }
             }
         }
-        //默认显示首页
-        mViewPager.setCurrentItem(0);
     }
 }

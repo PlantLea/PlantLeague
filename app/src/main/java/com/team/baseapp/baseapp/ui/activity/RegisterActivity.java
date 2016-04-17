@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.model.RegisterModel;
@@ -21,6 +23,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     private EditText et_user;
     private EditText et_psw;
     private EditText et_repsw;
+    private ImageView iv_left;
+    private TextView tv_title;
 
     private RegisterModel mRegisterModel;
 
@@ -43,10 +47,15 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         et_user = (EditText) findViewById(R.id.et_user);
         et_psw = (EditText) findViewById(R.id.et_psw);
         et_repsw = (EditText) findViewById(R.id.et_repsw);
+        tv_title = (TextView) findViewById(R.id.tv_title);
+        iv_left = (ImageView) findViewById(R.id.iv_left);
+
+        initHeader();
     }
 
     @Override
     protected void initListener() {
+        iv_left.setOnClickListener(this);
         btn_register.setOnClickListener(this);
     }
 
@@ -77,6 +86,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 //注册按钮
                 register();
                 break;
+            case R.id.iv_left:
+                onBackClicked();
             default:
                 break;
         }
@@ -100,4 +111,13 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         finish();
     }
 
+    private void onBackClicked() {
+        finish();
+    }
+
+    private void initHeader() {
+        tv_title.setText("注册");
+        iv_left.setImageResource(R.drawable.ic_left_arrow);
+        iv_left.setVisibility(View.VISIBLE);
+    }
 }

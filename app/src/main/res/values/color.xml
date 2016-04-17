@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorMain">#3358d2</color>
-    <color name="colorGreyBg">#f3f3f3</color>
+    <color name="colorMain">#2980b9</color>
+    <color name="colorGreyBg">#bdc3c7</color>
     <color name="colorGreyDark">#bfbfbf</color>
     <color name="colorDark">#000000</color>
+    <color name="colorGreyBottom">#c2c2c2</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorTrans">#00ffffff</color>
     <color name="colorRipple">#dddddd</color>

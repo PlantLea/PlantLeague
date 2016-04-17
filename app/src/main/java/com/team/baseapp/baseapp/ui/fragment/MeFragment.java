@@ -33,11 +33,11 @@ public class MeFragment extends BaseFragment {
     };
     //icon
     private int[] iconRes = new int[]{
-            R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher
+            R.drawable.ic_publish_menu,
+            R.drawable.ic_buy_menu,
+            R.drawable.ic_sold_menu,
+            R.drawable.ic_bookmark_menu,
+            R.drawable.ic_setting_menu
     };
 
     @Override
