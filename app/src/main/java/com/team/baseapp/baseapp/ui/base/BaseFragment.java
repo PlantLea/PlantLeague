@@ -9,15 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.team.baseapp.baseapp.R;
-import com.team.baseapp.baseapp.ui.view.HeaderView;
+import com.team.baseapp.baseapp.ui.view.IHeaderViewBuilder;
 import com.team.baseapp.baseapp.util.BusUtils;
 
 /**
  * 基类Fragment, 所有Fragment继承它
  * Created by lynnzc on 16-3-18.
  */
-public abstract class BaseFragment extends Fragment implements HeaderView {
+public abstract class BaseFragment extends Fragment implements IHeaderViewBuilder {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

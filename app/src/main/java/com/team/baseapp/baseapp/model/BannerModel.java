@@ -21,14 +21,14 @@ public class BannerModel {
 
     private void initImage() {
         Image image = new Image();
-        image.setAvatar("暂时没有");
+        image.setAvatar(R.mipmap.ic_launcher);
         image.setImages(getImages());
         imageModel = new ImageModel(image);
     }
 
     private void initDot() {
         Image image = new Image();
-        image.setAvatar("暂时没有");
+        image.setAvatar(R.mipmap.ic_launcher);
         image.setImages(getDots());
         dotModel = new ImageModel(image);
     }

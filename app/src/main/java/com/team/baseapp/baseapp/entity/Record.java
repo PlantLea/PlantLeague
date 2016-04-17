@@ -1,5 +1,7 @@
 package com.team.baseapp.baseapp.entity;
 
+import com.team.baseapp.baseapp.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class Record {
         User initUser = new User();
         initUser.setUsr("admin");
         initUser.setPsw("1234");
+        initUser.setAvatar(R.mipmap.ic_launcher);
         //添加默认用户
         add(initUser);
     }
@@ -30,6 +33,7 @@ public class Record {
 
     /**
      * 模拟添加注册用户
+     *
      * @param user
      */
     public void add(User user) {
@@ -38,11 +42,12 @@ public class Record {
 
     /**
      * 检查待注册用户是否有重复
+     *
      * @param usr
      * @return
      */
     public boolean checkUser(String usr) {
-        for(User user : record) {
+        for (User user : record) {
             if (user.getUsr().equals(usr)) {
                 return false;
             }
@@ -52,6 +57,7 @@ public class Record {
 
     /**
      * 模拟用户登录验证
+     *
      * @param user
      * @param psw
      * @return

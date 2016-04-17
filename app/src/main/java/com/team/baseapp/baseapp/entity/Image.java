@@ -12,15 +12,15 @@ import java.util.List;
  */
 public class Image implements Parcelable {
     //小图
-    private String avatar;
+    private int avatar;
     //图片列表
     private List<Integer> images;
 
-    public String getAvatar() {
+    public int getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(String avatar) {
+    public void setAvatar(int avatar) {
         this.avatar = avatar;
     }
 
@@ -47,7 +47,7 @@ public class Image implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.avatar);
+        dest.writeInt(this.avatar);
         dest.writeList(this.images);
     }
 
@@ -55,7 +55,7 @@ public class Image implements Parcelable {
     }
 
     protected Image(Parcel in) {
-        this.avatar = in.readString();
+        this.avatar = in.readInt();
         this.images = new ArrayList<Integer>();
         in.readList(this.images, Integer.class.getClassLoader());
     }

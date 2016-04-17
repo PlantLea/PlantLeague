@@ -7,7 +7,7 @@ import android.view.ViewGroup;
  * header view
  * Created by lynnzc on 16-4-16.
  */
-public interface HeaderView {
+public interface IHeaderViewBuilder {
     View attachHeader(ViewGroup parent);
 
     void initHeader(View header);

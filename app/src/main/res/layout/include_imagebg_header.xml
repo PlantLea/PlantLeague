@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fl_header"
     android:layout_width="match_parent"
-    android:layout_height="48dp"
-    android:background="@color/colorMain"
-    android:orientation="horizontal">
+    android:layout_height="240dp">
 
     <ImageView
         android:id="@+id/iv_left"
         android:layout_width="48dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical|left"
+        android:layout_height="48dp"
+        android:layout_gravity="top|left"
+        android:scaleType="center"
         android:visibility="gone"
         tools:background="@color/colorRipple" />
 
     <TextView
-        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal|top"
         android:gravity="center"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
@@ -30,8 +27,9 @@
     <ImageView
         android:id="@+id/iv_right"
         android:layout_width="48dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical|right"
+        android:layout_height="48dp"
+        android:layout_gravity="top|right"
+        android:scaleType="center"
         android:visibility="gone"
         tools:background="@color/colorRipple" />
 </FrameLayout>

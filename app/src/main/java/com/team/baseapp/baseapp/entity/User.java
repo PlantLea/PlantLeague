@@ -20,7 +20,7 @@ public class User implements Parcelable {
     //性别
     private boolean sex;
     //头像
-    private String avatar;
+    private int avatar;
     //简介
     private String description;
     //电话
@@ -72,11 +72,11 @@ public class User implements Parcelable {
         this.sex = sex;
     }
 
-    public String getAvatar() {
+    public int getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(String avatar) {
+    public void setAvatar(int avatar) {
         this.avatar = avatar;
     }
 
@@ -183,7 +183,7 @@ public class User implements Parcelable {
         dest.writeString(this.psw);
         dest.writeString(this.nickname);
         dest.writeByte(sex ? (byte) 1 : (byte) 0);
-        dest.writeString(this.avatar);
+        dest.writeInt(this.avatar);
         dest.writeString(this.description);
         dest.writeString(this.phone);
         dest.writeInt(this.balance);
@@ -203,7 +203,7 @@ public class User implements Parcelable {
         this.psw = in.readString();
         this.nickname = in.readString();
         this.sex = in.readByte() != 0;
-        this.avatar = in.readString();
+        this.avatar = in.readInt();
         this.description = in.readString();
         this.phone = in.readString();
         this.balance = in.readInt();
