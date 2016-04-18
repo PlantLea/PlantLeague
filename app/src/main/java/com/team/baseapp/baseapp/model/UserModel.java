@@ -1,7 +1,10 @@
 package com.team.baseapp.baseapp.model;
 
 import com.team.baseapp.baseapp.R;
+import com.team.baseapp.baseapp.entity.Good;
 import com.team.baseapp.baseapp.entity.User;
+
+import java.util.ArrayList;
 
 /**
  * 处理登录用户 model
@@ -51,5 +54,18 @@ public class UserModel {
 
     public int getAvatar() {
         return user == null ? R.drawable.ic_default_avatar : user.getAvatar();
+    }
+
+    //增加发布
+    public void addRelease(Good good) {
+        if (user == null) {
+            return;
+        }
+
+        if (user.getReleases() == null) {
+            user.setReleases(new ArrayList<Good>());
+        }
+
+        user.getReleases().add(good);
     }
 }
