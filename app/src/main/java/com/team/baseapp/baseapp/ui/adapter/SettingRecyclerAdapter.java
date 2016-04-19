@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.entity.Menu;
+import com.team.baseapp.baseapp.util.UIUtils;
 
 import java.util.List;
 
@@ -64,6 +65,7 @@ public class SettingRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                     switch (getAdapterPosition()) {
                         default:
                             //其他
+                            UIUtils.showToast(view.getContext(), "未实现");
                             break;
                     }
                 }

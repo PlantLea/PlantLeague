@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.team.baseapp.baseapp.Constants;
 import com.team.baseapp.baseapp.R;
+import com.team.baseapp.baseapp.entity.Good;
 import com.team.baseapp.baseapp.ui.base.BaseActivity;
 
 /**
@@ -17,6 +19,7 @@ public class GoodDetailActivity extends BaseActivity
         implements View.OnClickListener {
     private ImageView iv_left;
     private ImageView iv_right;
+    private ImageView iv_bg;
     private TextView tv_buy;
     private TextView tv_title;
     private TextView tv_des;
@@ -25,6 +28,8 @@ public class GoodDetailActivity extends BaseActivity
     private TextView tv_call;
     private TextView tv_phone;
     private TextView tv_time;
+    //显示的商品
+    private Good good;
 
 
     @Override
@@ -35,7 +40,7 @@ public class GoodDetailActivity extends BaseActivity
     @Override
     protected void initView() {
         initHeader();
-
+        iv_bg = (ImageView) findViewById(R.id.iv_bg);
         tv_buy = (TextView) findViewById(R.id.tv_pay);
         tv_title = (TextView) findViewById(R.id.tv_title);
         tv_des = (TextView) findViewById(R.id.tv_des);
@@ -55,7 +60,8 @@ public class GoodDetailActivity extends BaseActivity
 
     @Override
     protected void initData() {
-
+        good = getData();
+        bindGood(good);
     }
 
     @Override
@@ -97,5 +103,27 @@ public class GoodDetailActivity extends BaseActivity
         Intent intent = new Intent(Intent.ACTION_CALL,
                 Uri.parse("tel:" + tv_phone.getText().toString()));
         startActivity(intent);
+    }
+
+    private Good getData() {
+        return getIntent().getParcelableExtra(Constants.PARAM_GOOD_DATA);
+    }
+
+    private void bindGood(Good good) {
+        if (good == null) {
+            return;
+        }
+
+        if (good.getImage() != null) {
+            iv_bg.setBackgroundResource(good.getImage().getAvatar());
+        }
+
+        tv_title.setText(good.getName());
+        tv_des.setText(good.getDescription());
+        tv_price.setText("价格 : " + good.getPrice());
+        tv_time.setText(good.getDate());
+        if (good.getUser() != null) {
+            tv_phone.setText(good.getUser().getPhone());
+        }
     }
 }

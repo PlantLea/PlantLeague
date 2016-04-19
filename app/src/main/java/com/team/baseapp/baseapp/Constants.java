@@ -20,4 +20,5 @@ public class Constants {
     //已退款
     public static final int ORDER_STATUS_REFUND = 7;
 
+    public static final String PARAM_GOOD_DATA = "good_data";
 }

@@ -1,6 +1,7 @@
-package com.team.baseapp.baseapp.entity;
+package com.team.baseapp.baseapp.model;
 
 import com.team.baseapp.baseapp.R;
+import com.team.baseapp.baseapp.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +10,10 @@ import java.util.List;
  * 模拟注册的后台记录
  * Created by m1830 on 2016/4/15.
  */
-public class Record {
+public class RecordModel {
     private List<User> record;
 
-    private Record() {
+    private RecordModel() {
         record = new ArrayList<>();
         //默认用户
         User initUser = new User();
@@ -20,16 +21,18 @@ public class Record {
         initUser.setPsw("1234");
         initUser.setAvatar(R.drawable.ic_default_avatar);
         initUser.setNickname("剁手开挂员");
+        initUser.setPhone("020-110");
+        initUser.setSex(true);
         initUser.setDescription("想剁谁就剁谁,　不服来买啊!");
         //添加默认用户
         add(initUser);
     }
 
     private static final class RecordHolder {
-        private static final Record INSTANCE = new Record();
+        private static final RecordModel INSTANCE = new RecordModel();
     }
 
-    public static Record getInstance() {
+    public static RecordModel getInstance() {
         return RecordHolder.INSTANCE;
     }
 

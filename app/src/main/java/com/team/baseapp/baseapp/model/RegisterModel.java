@@ -3,13 +3,8 @@ package com.team.baseapp.baseapp.model;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.team.baseapp.baseapp.entity.Record;
 import com.team.baseapp.baseapp.entity.User;
 import com.team.baseapp.baseapp.util.UIUtils;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by m1830 on 2016/3/27.
@@ -49,7 +44,7 @@ public class RegisterModel implements BaseModel{
             user.setUsr(usr);
             user.setPsw(psw);
             //记录新用户
-            Record.getInstance().add(user);
+            RecordModel.getInstance().add(user);
 
             if (registerCallback != null) {
                 //回调登录成功方法
@@ -70,7 +65,7 @@ public class RegisterModel implements BaseModel{
      * @return 验证是否注册成功
      */
     private boolean verify(String usr) {
-        return Record.getInstance().checkUser(usr);
+        return RecordModel.getInstance().checkUser(usr);
     }
 
     /**

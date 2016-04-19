@@ -65,6 +65,7 @@ public class ShipCartFragment extends BaseFragment {
     }
 
     private void initCartModel() {
-        ship = new CartModel(UserModel.getInstance().getUser().getCarts());
+        //TODO
+//        ship = new CartModel(UserModel.getInstance().getUser().getCarts());
     }
 }

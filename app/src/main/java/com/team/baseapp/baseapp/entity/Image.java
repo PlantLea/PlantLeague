@@ -16,6 +16,10 @@ public class Image implements Parcelable {
     //图片列表
     private List<Integer> images;
 
+    public Image(int avatar) {
+        this.avatar = avatar;
+    }
+
     public int getAvatar() {
         return avatar;
     }

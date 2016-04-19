@@ -3,7 +3,6 @@ package com.team.baseapp.baseapp.model;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.team.baseapp.baseapp.entity.Record;
 import com.team.baseapp.baseapp.entity.User;
 
 /**
@@ -98,7 +97,7 @@ public class LoginModel implements BaseModel {
      * @return 验证是否登录成功
      */
     public boolean verify(String usr, String psw) {
-        return Record.getInstance().verify(usr, psw);
+        return RecordModel.getInstance().verify(usr, psw);
     }
 
     public String getUser() {
@@ -119,7 +118,7 @@ public class LoginModel implements BaseModel {
     public User getUserToken() {
         //返回记录的登录信息
         if (user != null) {
-            return Record.getInstance().getUser(user.getUsr());
+            return RecordModel.getInstance().getUser(user.getUsr());
         }
         return null;
     }

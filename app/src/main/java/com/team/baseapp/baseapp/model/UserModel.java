@@ -5,6 +5,7 @@ import com.team.baseapp.baseapp.entity.Good;
 import com.team.baseapp.baseapp.entity.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 处理登录用户 model
@@ -67,5 +68,13 @@ public class UserModel {
         }
 
         user.getReleases().add(good);
+    }
+
+    public List<Good> getRelease() {
+        if (user == null) {
+            return null;
+        }
+
+        return user.getReleases();
     }
 }

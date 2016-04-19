@@ -35,6 +35,24 @@
                 android:background="@drawable/default_divider" />
 
             <EditText
+                android:id="@+id/et_price"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/colorWhite"
+                android:gravity="left|center_vertical"
+                android:hint="写下你的价格"
+                android:inputType="number"
+                android:maxLines="1"
+                android:paddingLeft="12dp"
+                android:textColor="@color/colorGreyDark"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@drawable/default_divider" />
+
+            <EditText
                 android:id="@+id/et_des"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
@@ -47,18 +65,25 @@
                 android:textColor="@color/colorGreyDark"
                 android:textSize="16sp" />
 
+            <FrameLayout
+                android:id="@+id/fl_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|top"
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/iv_add"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/ic_image_add" />
+            </FrameLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="12dp"
                 android:background="@drawable/default_divider" />
         </LinearLayout>
-
-
-        <FrameLayout
-            android:id="@+id/fl_image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left|top"/>
     </ScrollView>
 
     <TextView

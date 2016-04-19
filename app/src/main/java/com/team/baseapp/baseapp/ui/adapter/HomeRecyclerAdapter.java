@@ -1,16 +1,23 @@
 package com.team.baseapp.baseapp.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.team.baseapp.baseapp.R;
+import com.team.baseapp.baseapp.entity.Good;
 import com.team.baseapp.baseapp.model.BannerModel;
+import com.team.baseapp.baseapp.ui.activity.GoodDetailActivity;
 import com.team.baseapp.baseapp.ui.widget.BannerViewPager;
+import com.team.baseapp.baseapp.util.UIUtils;
 
 import java.util.List;
 
@@ -20,7 +27,7 @@ import java.util.List;
  */
 public class HomeRecyclerAdapter
         extends RecyclerView.Adapter<RecyclerView.ViewHolder>
-        implements IListAdapter {
+        implements IListAdapter<Object> {
     public static final int ITEM_VIEW_BANNER = 0;
     public static final int ITEM_VIEW_CONTENT = 1;
     private LayoutInflater layoutInflater;
@@ -40,17 +47,21 @@ public class HomeRecyclerAdapter
                     context, layoutInflater.inflate(R.layout.item_banner, parent, false));
         } else if (viewType == ITEM_VIEW_CONTENT) {
             return new ContentViewHolder(
-                    context, layoutInflater.inflate(R.layout.item_home_content, parent, false));
+                    context, layoutInflater.inflate(R.layout.item_promote_view, parent, false));
         }
         return null;
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof BannerViewHolder) {
+        if (holder instanceof ContentViewHolder) {
+            ((ContentViewHolder) holder).refresh(datas.get(position));
+        } else if (holder instanceof BannerViewHolder) {
+            //占满整个宽度
+            StaggeredGridLayoutManager.LayoutParams params =
+                    (StaggeredGridLayoutManager.LayoutParams) holder.itemView.getLayoutParams();
+            params.setFullSpan(true);
             ((BannerViewHolder) holder).refresh();
-        } else if (holder instanceof ContentViewHolder) {
-            ((ContentViewHolder) holder).refresh();
         }
     }
 
@@ -185,6 +196,11 @@ public class HomeRecyclerAdapter
 
     private class ContentViewHolder extends RecyclerView.ViewHolder {
         private Context context;
+        private TextView tv_name;
+        private TextView tv_title;
+        private ImageView iv_icon;
+        private ImageView iv_avatar;
+        private ImageView iv_comment;
 
         public ContentViewHolder(Context context, View itemView) {
             super(itemView);
@@ -196,10 +212,42 @@ public class HomeRecyclerAdapter
             if (root == null) {
                 return;
             }
+
+            tv_name = (TextView) root.findViewById(R.id.tv_name);
+            tv_title = (TextView) root.findViewById(R.id.tv_title);
+            iv_avatar = (ImageView) root.findViewById(R.id.iv_avatar);
+            iv_icon = (ImageView) root.findViewById(R.id.iv_icon);
+            iv_comment = (ImageView) root.findViewById(R.id.iv_comment);
+
+            root.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //跳转到详情
+                    view.getContext().startActivity(
+                            new Intent(view.getContext(), GoodDetailActivity.class));
+                }
+            });
+
+            iv_comment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //跳转到评论
+                    UIUtils.showToast(view.getContext(), "暂未实现");
+                }
+            });
         }
 
-        public void refresh() {
+        public void refresh(Object data) {
+            if (data != null && data instanceof Good) {
+                Good good = (Good) data;
 
+                tv_name.setText(good.getName());
+                iv_avatar.setImageResource(good.getImage().getAvatar());
+                if (good.getUser() != null) {
+                    tv_title.setText(good.getUser().getNickname());
+                    iv_icon.setImageResource(good.getUser().getAvatar());
+                }
+            }
         }
     }
 }
