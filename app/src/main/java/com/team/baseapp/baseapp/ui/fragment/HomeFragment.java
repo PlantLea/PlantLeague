@@ -17,6 +17,7 @@ import com.team.baseapp.baseapp.ui.base.BaseFragment;
 import com.team.baseapp.baseapp.ui.widget.DividerItemDecoration;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -80,22 +81,6 @@ public class HomeFragment extends BaseFragment {
         rv_home = (RecyclerView) root.findViewById(R.id.rv_home);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2,
                 StaggeredGridLayoutManager.VERTICAL);
-//        layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-//            @Override
-//            public int getSpanSize(int position) {
-//                switch (mAdapter.getItemViewType(position)) {
-//                    case HomeRecyclerAdapter.ITEM_VIEW_BANNER:
-//                        return 2;
-//                    case HomeRecyclerAdapter.ITEM_VIEW_CONTENT:
-//                        return 2;
-//                    default:
-//                        return 1;
-//                }
-//            }
-//        });
-//        rv_home.addItemDecoration(new DividerItemDecoration(
-//                getContext().getResources().getDrawable(R.drawable.default_divider)
-//                , false, true));
         rv_home.setLayoutManager(layoutManager);
     }
 
@@ -123,14 +108,16 @@ public class HomeFragment extends BaseFragment {
         Good good = new Good();
         good.setName("剁手推荐" + i + "号");
         good.setPrice(i * 100);
-        good.setDescription("剁手, 剁手, 剁手...............");
+        good.setDescription("剁手, 剁手, 剁手...............\n剁手节来啦\n购买包邮\n");
         good.setCount(9 * i);
         good.setId("999" + i);
+        good.setDate(new Date(System.currentTimeMillis()).toLocaleString());
 
         Image image = new Image(mTestResId[i]);
         User user = new User();
         user.setNickname("发布者" + i);
         user.setDescription("仅供测试");
+        user.setPhone("120888888888");
         user.setAvatar(R.drawable.ic_default_avatar);
 
         good.setImage(image);

@@ -90,7 +90,7 @@ public class GoodDetailActivity extends BaseActivity
         iv_right = (ImageView) findViewById(R.id.iv_right);
         iv_left.setVisibility(View.VISIBLE);
         iv_right.setVisibility(View.VISIBLE);
-        iv_left.setImageResource(R.drawable.ic_left_arrow);
+        iv_left.setImageResource(R.drawable.ic_back);
         iv_right.setImageResource(R.drawable.selector_star);
         iv_right.setSelected(false);
     }
@@ -102,12 +102,12 @@ public class GoodDetailActivity extends BaseActivity
 
     private void onBookmark() {
         //TODO 触发收藏
-        iv_right.setSelected(!iv_right.isSelected());
+        iv_right.setEnabled(!iv_right.isEnabled());
     }
 
     private void onCall() {
-        //触发打电话
-        Intent intent = new Intent(Intent.ACTION_CALL,
+        //TODO 触发打电话
+        Intent intent = new Intent(Intent.ACTION_DIAL,  
                 Uri.parse("tel:" + tv_phone.getText().toString()));
         startActivity(intent);
     }

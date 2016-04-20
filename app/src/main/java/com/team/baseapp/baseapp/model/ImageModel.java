@@ -63,4 +63,22 @@ public class ImageModel {
 
         image.getImages().add(resId);
     }
+
+    /**
+     * 设置图片资源
+     *
+     * @param ResId
+     * @param position
+     */
+    public void setResAt(int ResId, int position) {
+        if (image.getImages() == null) {
+            image.setImages(new ArrayList<Integer>());
+        }
+
+        if (position > image.getImages().size()) {
+            return;
+        }
+
+        image.getImages().set(position, ResId);
+    }
 }

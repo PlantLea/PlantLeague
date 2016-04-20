@@ -1,6 +1,9 @@
 package com.team.baseapp.baseapp.ui.activity;
 
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -12,6 +15,7 @@ import com.team.baseapp.baseapp.entity.Good;
 import com.team.baseapp.baseapp.entity.Image;
 import com.team.baseapp.baseapp.model.ImageModel;
 import com.team.baseapp.baseapp.model.UserModel;
+import com.team.baseapp.baseapp.ui.adapter.AddImageRecyclerAdapter;
 import com.team.baseapp.baseapp.ui.base.BaseActivity;
 import com.team.baseapp.baseapp.util.UIUtils;
 
@@ -29,10 +33,10 @@ public class PublishGoodActivity extends BaseActivity
     private EditText et_price;
     private TextView tv_title;
     private TextView tv_publish;
-    private LinearLayout fl_image;
-    private ImageView iv_add;
+    private RecyclerView rv_image;
     //记录图片数据
     private ImageModel imageModel;
+    private AddImageRecyclerAdapter mAdapter;
 
     @Override
     protected int getLayoutResource() {
@@ -42,26 +46,28 @@ public class PublishGoodActivity extends BaseActivity
     @Override
     protected void initView() {
         initHeader();
+        initImageRecyclerView();
 
         tv_publish = (TextView) findViewById(R.id.tv_publish);
         et_title = (EditText) findViewById(R.id.et_title);
         et_price = (EditText) findViewById(R.id.et_price);
         et_des = (EditText) findViewById(R.id.et_des);
-        fl_image = (LinearLayout) findViewById(R.id.fl_image);
-        iv_add = (ImageView) findViewById(R.id.iv_add);
     }
 
     @Override
     protected void initListener() {
         iv_left.setOnClickListener(this);
         tv_publish.setOnClickListener(this);
-        iv_add.setOnClickListener(this);
     }
 
     @Override
     protected void initData() {
         //初始化图片model
         imageModel = new ImageModel(new Image(R.drawable.ic_default_avatar));
+        //添加按钮
+        imageModel.addRes(0);
+        mAdapter = new AddImageRecyclerAdapter(imageModel, this);
+        rv_image.setAdapter(mAdapter);
     }
 
     @Override
@@ -73,8 +79,7 @@ public class PublishGoodActivity extends BaseActivity
             case R.id.tv_publish:
                 onPublish();
                 break;
-            case R.id.iv_add:
-                onImageAdd();
+            default:
                 break;
         }
     }
@@ -113,16 +118,8 @@ public class PublishGoodActivity extends BaseActivity
         finish();
     }
 
-    /**
-     * 添加图片 add
-     */
-    private void onImageAdd() {
-        UIUtils.showToast(this, "为方便测试, 并未实现从相册获取图片");
-        ImageView im = new ImageView(this);
-        im.setLayoutParams(iv_add.getLayoutParams());
-        im.setImageResource(R.drawable.ic_good1);
-        imageModel.addRes(R.drawable.ic_good1);
-        fl_image.addView(im, (fl_image.getChildCount() == 0)
-                ? 0 : (fl_image.getChildCount() - 1));
+    private void initImageRecyclerView() {
+        rv_image = (RecyclerView) findViewById(R.id.rv_image);
+        rv_image.setLayoutManager(new GridLayoutManager(this, 4));
     }
 }
