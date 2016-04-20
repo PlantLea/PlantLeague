@@ -3,6 +3,7 @@ package com.team.baseapp.baseapp.ui.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ import com.team.baseapp.baseapp.ui.base.BaseActivity;
  */
 public class GoodDetailActivity extends BaseActivity
         implements View.OnClickListener {
+    private FrameLayout fl_header;
     private ImageView iv_left;
     private ImageView iv_right;
     private ImageView iv_bg;
@@ -40,6 +42,9 @@ public class GoodDetailActivity extends BaseActivity
     @Override
     protected void initView() {
         initHeader();
+        fl_header = (FrameLayout) findViewById(R.id.fl_header);
+        fl_header.setBackgroundResource(R.drawable.bg_trans_header);
+
         iv_bg = (ImageView) findViewById(R.id.iv_bg);
         tv_buy = (TextView) findViewById(R.id.tv_pay);
         tv_title = (TextView) findViewById(R.id.tv_title);
@@ -80,6 +85,7 @@ public class GoodDetailActivity extends BaseActivity
     }
 
     private void initHeader() {
+
         iv_left = (ImageView) findViewById(R.id.iv_left);
         iv_right = (ImageView) findViewById(R.id.iv_right);
         iv_left.setVisibility(View.VISIBLE);
@@ -119,7 +125,8 @@ public class GoodDetailActivity extends BaseActivity
             iv_bg.setBackgroundResource(good.getImage().getAvatar());
         }
 
-        tv_title.setText(good.getName());
+//        tv_title.setText(good.getName());
+        tv_name.setText(good.getName());
         tv_des.setText(good.getDescription());
         tv_price.setText("价格 : " + good.getPrice());
         tv_time.setText(good.getDate());

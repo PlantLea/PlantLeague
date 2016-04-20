@@ -126,7 +126,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|center_vertical"
                     android:background="@drawable/selector_rec_bg"
-                    android:text="拨打" />
+                    android:padding="4dp"
+                    android:text="拨打"
+                    android:textColor="@color/colorDark"
+                    android:textSize="14sp" />
             </FrameLayout>
 
             <View

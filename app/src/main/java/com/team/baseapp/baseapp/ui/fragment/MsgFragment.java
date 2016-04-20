@@ -80,11 +80,11 @@ public class MsgFragment extends BaseFragment {
         Msg msg = new Msg();
         msg.setTitle("系统消息");
         msg.setContent("暂时没有系统消息");
-        msg.setImage(R.mipmap.ic_launcher);
+        msg.setImage(R.drawable.ic_system);
         Msg orderMsg = new Msg();
         orderMsg.setTitle("订单信息");
         orderMsg.setContent("暂时没有订单信息");
-        orderMsg.setImage(R.mipmap.ic_launcher);
+        orderMsg.setImage(R.drawable.ic_order);
 
         msgs.add(msg);
         msgs.add(orderMsg);

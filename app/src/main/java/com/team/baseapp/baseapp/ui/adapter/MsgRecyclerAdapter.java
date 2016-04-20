@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.entity.Msg;
 import com.team.baseapp.baseapp.ui.activity.MainActivity;
+import com.team.baseapp.baseapp.util.UIUtils;
 
 import java.util.List;
 
@@ -68,16 +69,17 @@ public class MsgRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 @Override
                 public void onClick(View view) {
                     switch (getLayoutPosition()) {
-                        case 0:
-                            //系统消息
-                            toSystemMsgActivity();
-                            break;
-                        case 1:
-                            //订单消息
-                            toOrderMsgActivity();
-                            break;
+//                        case 0:
+//                            //系统消息
+//                            toSystemMsgActivity();
+//                            break;
+//                        case 1:
+//                            //订单消息
+//                            toOrderMsgActivity();
+//                            break;
                         default:
                             //其他
+                            UIUtils.showToast(context, "暂未实现");
                             //TODO 其他消息
                             break;
                     }

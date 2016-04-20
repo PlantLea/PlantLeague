@@ -69,13 +69,19 @@ public class BannerPagerAdapter extends PagerAdapter {
         if (mBannerModel == null) {
             return null;
         }
-        Log.d("banner", "初始化");
         position = position % mBannerModel.getImageCount();
         //init image
-        ImageView bannerView = new ImageView(mViewPager.getContext());
+        final ImageView bannerView = new ImageView(mViewPager.getContext());
         bannerView.setBackgroundResource(mBannerModel.getImageAt(position));
         container.addView(bannerView, ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
+
+        bannerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UIUtils.showToast(bannerView.getContext(), "暂未实现");
+            }
+        });
         return bannerView;
     }
 
