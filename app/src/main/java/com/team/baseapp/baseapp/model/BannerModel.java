@@ -45,10 +45,11 @@ public class BannerModel {
 
     private List<Integer> getImages() {
         List<Integer> images = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            //TODO 加入轮播资源
-            images.add(R.mipmap.ic_launcher);
-        }
+        images.add(R.drawable.ic_banner);
+        images.add(R.drawable.ic_banner2);
+        images.add(R.drawable.ic_banner3);
+        images.add(R.drawable.ic_banner4);
+        images.add(R.drawable.ic_banner5);
         return images;
     }
 

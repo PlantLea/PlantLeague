@@ -84,6 +84,7 @@ public class GoodDetailActivity extends BaseActivity
         iv_right = (ImageView) findViewById(R.id.iv_right);
         iv_left.setVisibility(View.VISIBLE);
         iv_right.setVisibility(View.VISIBLE);
+        iv_left.setImageResource(R.drawable.ic_left_arrow);
         iv_right.setImageResource(R.drawable.selector_star);
         iv_right.setSelected(false);
     }

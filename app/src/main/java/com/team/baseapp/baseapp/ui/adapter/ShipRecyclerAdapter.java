@@ -1,6 +1,7 @@
 package com.team.baseapp.baseapp.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,9 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.team.baseapp.baseapp.Constants;
 import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.entity.Good;
 import com.team.baseapp.baseapp.model.CartModel;
+import com.team.baseapp.baseapp.ui.activity.GoodDetailActivity;
 
 /**
  * 购物车页面 recyclerview adapter
@@ -80,14 +83,15 @@ public class ShipRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             tv_price.setText(
                     context.getResources().getString(
                             R.string.one_price, good.getPrice()));
-            tv_count.setText(good.getCount());
+            tv_count.setText("" + good.getCount());
             //图片资源
-//            iv_icon.setImageResource(good.getImage().getImages().get(0));
+            iv_icon.setBackgroundResource(good.getImage().getAvatar());
         }
 
         private void toGoodDetailActivity() {
             //TODO 跳转商品详情
-//            context.startActivity(new Intent(context, GoodDetailActivity.class));
+            context.startActivity(new Intent(context, GoodDetailActivity.class)
+                    .putExtra(Constants.PARAM_GOOD_DATA, ship.get(getAdapterPosition())));
         }
     }
 }

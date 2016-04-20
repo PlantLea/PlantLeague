@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.team.baseapp.baseapp.Constants;
 import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.entity.Good;
 import com.team.baseapp.baseapp.model.BannerModel;
@@ -224,7 +225,8 @@ public class HomeRecyclerAdapter
                 public void onClick(View view) {
                     //跳转到详情
                     view.getContext().startActivity(
-                            new Intent(view.getContext(), GoodDetailActivity.class));
+                            new Intent(view.getContext(), GoodDetailActivity.class)
+                                    .putExtra(Constants.PARAM_GOOD_DATA, (Good) datas.get(getAdapterPosition())));
                 }
             });
 
@@ -242,7 +244,7 @@ public class HomeRecyclerAdapter
                 Good good = (Good) data;
 
                 tv_name.setText(good.getName());
-                iv_avatar.setImageResource(good.getImage().getAvatar());
+                iv_avatar.setBackgroundResource(good.getImage().getAvatar());
                 if (good.getUser() != null) {
                     tv_title.setText(good.getUser().getNickname());
                     iv_icon.setImageResource(good.getUser().getAvatar());

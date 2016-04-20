@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.team.baseapp.baseapp.R;
@@ -28,7 +29,7 @@ public class PublishGoodActivity extends BaseActivity
     private EditText et_price;
     private TextView tv_title;
     private TextView tv_publish;
-    private FrameLayout fl_image;
+    private LinearLayout fl_image;
     private ImageView iv_add;
     //记录图片数据
     private ImageModel imageModel;
@@ -46,7 +47,7 @@ public class PublishGoodActivity extends BaseActivity
         et_title = (EditText) findViewById(R.id.et_title);
         et_price = (EditText) findViewById(R.id.et_price);
         et_des = (EditText) findViewById(R.id.et_des);
-        fl_image = (FrameLayout) findViewById(R.id.fl_image);
+        fl_image = (LinearLayout) findViewById(R.id.fl_image);
         iv_add = (ImageView) findViewById(R.id.iv_add);
     }
 

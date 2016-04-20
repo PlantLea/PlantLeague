@@ -93,9 +93,9 @@ public class HomeFragment extends BaseFragment {
 //                }
 //            }
 //        });
-        rv_home.addItemDecoration(new DividerItemDecoration(
-                getContext().getResources().getDrawable(R.drawable.default_divider)
-                , false, true));
+//        rv_home.addItemDecoration(new DividerItemDecoration(
+//                getContext().getResources().getDrawable(R.drawable.default_divider)
+//                , false, true));
         rv_home.setLayoutManager(layoutManager);
     }
 

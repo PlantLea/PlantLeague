@@ -65,19 +65,22 @@
                 android:textColor="@color/colorGreyDark"
                 android:textSize="16sp" />
 
-            <FrameLayout
+            <LinearLayout
                 android:id="@+id/fl_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|top"
+                android:orientation="horizontal"
                 android:padding="20dp">
 
                 <ImageView
                     android:id="@+id/iv_add"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:background="@drawable/ic_image_add" />
-            </FrameLayout>
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
