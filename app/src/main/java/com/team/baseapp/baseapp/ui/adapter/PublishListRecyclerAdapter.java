@@ -100,7 +100,7 @@ public class PublishListRecyclerAdapter extends RecyclerView.Adapter<RecyclerVie
         //刷新数据
         public void refresh(Good good) {
             tv_title.setText(good.getName());
-            tv_price.setText(good.getPrice());
+            tv_price.setText("" + good.getPrice());
 //            iv_icon.setImageResource(good.getCount());
         }
 

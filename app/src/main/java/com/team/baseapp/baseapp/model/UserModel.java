@@ -129,7 +129,8 @@ public class UserModel {
         good.setPrice(9999);
         good.setDate(new Date(System.currentTimeMillis()).toLocaleString());
         good.setDescription("测试使用");
-        good.setUser(user == null ? new User("test", "1234") : user);
+        good.setUser(user == null ? new User("test", "1234") :
+                new User(user.getUsr(), user.getPsw()));
         return good;
     }
 }

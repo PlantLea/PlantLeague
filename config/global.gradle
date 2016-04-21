@@ -10,7 +10,7 @@ ext {
     ]
 
     libs = [
-            supportVersion    : "23.1.1",
+            supportVersion    : "23.2.1",
             retrofit          : "2.0.0",
             rxandroid         : "1.1.0",
             rxjava            : "1.1.1",

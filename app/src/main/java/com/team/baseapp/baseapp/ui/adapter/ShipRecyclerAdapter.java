@@ -89,7 +89,7 @@ public class ShipRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
 
         private void toGoodDetailActivity() {
-            //TODO 跳转商品详情
+            // 跳转商品详情
             context.startActivity(new Intent(context, GoodDetailActivity.class)
                     .putExtra(Constants.PARAM_GOOD_DATA, ship.get(getAdapterPosition())));
         }

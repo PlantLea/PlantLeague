@@ -104,6 +104,21 @@ public class PublishGoodActivity extends BaseActivity
      */
     @SuppressWarnings("deprecation")
     private void onPublish() {
+        if (et_title.getText().toString().equals("")) {
+            UIUtils.showToast(this, "请输入商品名称");
+            return;
+        }
+
+        if (et_price.getText().toString().equals("")) {
+            UIUtils.showToast(this, "请输入价格");
+            return;
+        }
+
+        if (et_des.getText().toString().equals("")) {
+            UIUtils.showToast(this, "请输入描述");
+            return;
+        }
+
         Good good = new Good();
         good.setName(et_title.getText().toString());
         good.setDescription(et_des.getText().toString());

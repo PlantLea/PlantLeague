@@ -65,7 +65,7 @@ public class ShipCartFragment extends BaseFragment {
     }
 
     private void initCartModel() {
-        //TODO 初始化购物车信息
+        // 初始化购物车信息
         ship = new CartModel(UserModel.getInstance().getCarts());
     }
 }

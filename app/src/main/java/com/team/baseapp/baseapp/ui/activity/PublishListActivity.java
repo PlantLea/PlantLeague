@@ -53,6 +53,7 @@ public class PublishListActivity extends BaseActivity
             publishs.addAll(UserModel.getInstance().getRelease());
         }
         mAdapter = new PublishListRecyclerAdapter(this, publishs);
+        rv_content.setAdapter(mAdapter);
     }
 
     @Override

@@ -13,6 +13,7 @@ import com.team.baseapp.baseapp.model.UserModel;
 import com.team.baseapp.baseapp.ui.adapter.MeRecyclerAdapter;
 import com.team.baseapp.baseapp.ui.base.BaseFragment;
 import com.team.baseapp.baseapp.ui.widget.DividerItemDecoration;
+import com.team.baseapp.baseapp.util.UIUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -139,6 +140,7 @@ public class MeFragment extends BaseFragment
      */
     private void toEditUserActivity() {
         //TODO
+        UIUtils.showToast(getContext(), "暂未实现");
 //        getContext().startActivity(new Intent(getContext(), EditUserActivity.class));
     }
 }

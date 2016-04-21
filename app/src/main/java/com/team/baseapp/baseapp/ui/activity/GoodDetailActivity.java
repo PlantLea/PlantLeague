@@ -11,6 +11,7 @@ import com.team.baseapp.baseapp.Constants;
 import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.entity.Good;
 import com.team.baseapp.baseapp.ui.base.BaseActivity;
+import com.team.baseapp.baseapp.util.UIUtils;
 
 /**
  * 商品详情 activity
@@ -19,9 +20,12 @@ import com.team.baseapp.baseapp.ui.base.BaseActivity;
 public class GoodDetailActivity extends BaseActivity
         implements View.OnClickListener {
     private FrameLayout fl_header;
+    private FrameLayout fl_user;
     private ImageView iv_left;
     private ImageView iv_right;
     private ImageView iv_bg;
+    private ImageView iv_avatar;
+    private TextView tv_owner;
     private TextView tv_buy;
     private TextView tv_title;
     private TextView tv_des;
@@ -43,9 +47,13 @@ public class GoodDetailActivity extends BaseActivity
     protected void initView() {
         initHeader();
         fl_header = (FrameLayout) findViewById(R.id.fl_header);
+        fl_user = (FrameLayout) findViewById(R.id.fl_user);
         fl_header.setBackgroundResource(R.drawable.bg_trans_header);
 
+        iv_avatar = (ImageView) findViewById(R.id.iv_avatar);
         iv_bg = (ImageView) findViewById(R.id.iv_bg);
+
+        tv_owner = (TextView) findViewById(R.id.tv_owner);
         tv_buy = (TextView) findViewById(R.id.tv_pay);
         tv_title = (TextView) findViewById(R.id.tv_title);
         tv_des = (TextView) findViewById(R.id.tv_des);
@@ -61,6 +69,7 @@ public class GoodDetailActivity extends BaseActivity
         iv_left.setOnClickListener(this);
         iv_right.setOnClickListener(this);
         tv_call.setOnClickListener(this);
+        fl_user.setOnClickListener(this);
     }
 
     @Override
@@ -80,6 +89,11 @@ public class GoodDetailActivity extends BaseActivity
                 break;
             case R.id.tv_call:
                 onCall();
+                break;
+            case R.id.fl_user:
+                onUserClick();
+                break;
+            default:
                 break;
         }
     }
@@ -107,7 +121,7 @@ public class GoodDetailActivity extends BaseActivity
 
     private void onCall() {
         //TODO 触发打电话
-        Intent intent = new Intent(Intent.ACTION_DIAL,  
+        Intent intent = new Intent(Intent.ACTION_DIAL,
                 Uri.parse("tel:" + tv_phone.getText().toString()));
         startActivity(intent);
     }
@@ -131,7 +145,13 @@ public class GoodDetailActivity extends BaseActivity
         tv_price.setText("价格 : " + good.getPrice());
         tv_time.setText(good.getDate());
         if (good.getUser() != null) {
+            iv_avatar.setImageResource(good.getUser().getAvatar());
+            tv_owner.setText(good.getUser().getNickname());
             tv_phone.setText(good.getUser().getPhone());
         }
+    }
+
+    private void onUserClick() {
+        UIUtils.showToast(this, "暂未实现");
     }
 }
