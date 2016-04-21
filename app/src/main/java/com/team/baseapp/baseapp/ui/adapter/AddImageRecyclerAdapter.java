@@ -72,12 +72,12 @@ public class AddImageRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
                             datas.setResAt(R.drawable.ic_good6, datas.getImageCount() - 1);
                             //添加图片按钮
                             datas.addRes(0);
-                            notifyItemInserted(datas.getImageCount());
+                            notifyItemRangeChanged(datas.getImageCount() - 2, 2);
                         } else {
                             //覆盖添加按钮
                             datas.setResAt(R.drawable.ic_good6, datas.getImageCount() - 1);
+                            notifyItemChanged(datas.getImageCount() - 1);
                         }
-                        notifyItemChanged(datas.getImageCount() - 1);
                     }
                 }
             });

@@ -60,7 +60,7 @@ public class ShipCartFragment extends BaseFragment {
         rv_ship.setLayoutManager(new LinearLayoutManager(getContext()));
         rv_ship.addItemDecoration(
                 new DividerItemDecoration(
-                        getContext().getResources().getDrawable(R.drawable.default_divider)
+                        getResources().getDrawable(R.drawable.default_divider)
                         , false, true));
     }
 

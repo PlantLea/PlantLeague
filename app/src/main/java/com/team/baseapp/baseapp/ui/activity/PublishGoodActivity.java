@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.team.baseapp.baseapp.R;
 import com.team.baseapp.baseapp.entity.Good;
 import com.team.baseapp.baseapp.entity.Image;
+import com.team.baseapp.baseapp.entity.User;
 import com.team.baseapp.baseapp.model.ImageModel;
 import com.team.baseapp.baseapp.model.UserModel;
 import com.team.baseapp.baseapp.ui.adapter.AddImageRecyclerAdapter;
@@ -63,7 +64,7 @@ public class PublishGoodActivity extends BaseActivity
     @Override
     protected void initData() {
         //初始化图片model
-        imageModel = new ImageModel(new Image(R.drawable.ic_default_avatar));
+        imageModel = new ImageModel(new Image(R.drawable.ic_good5));
         //添加按钮
         imageModel.addRes(0);
         mAdapter = new AddImageRecyclerAdapter(imageModel, this);
@@ -119,10 +120,21 @@ public class PublishGoodActivity extends BaseActivity
             return;
         }
 
+        if (imageModel.getImageCount() == 0 ||
+                imageModel.getImageAt(0) == 0) {
+            UIUtils.showToast(this, "请选择一张图片");
+            return;
+        }
+
         Good good = new Good();
         good.setName(et_title.getText().toString());
         good.setDescription(et_des.getText().toString());
-        good.setUser(UserModel.getInstance().getUser());
+        User user = new User();
+        user.setUsr(UserModel.getInstance().getUser().getUsr());
+        user.setPhone(UserModel.getInstance().getUser().getPhone());
+        user.setNickname(UserModel.getInstance().getUser().getNickname());
+        user.setAvatar(UserModel.getInstance().getUser().getAvatar());
+        good.setUser(user);
         good.setImage(imageModel.getImage());
         good.setPrice(Integer.parseInt(et_price.getText().toString()));
         good.setDate(new Date(System.currentTimeMillis()).toLocaleString());

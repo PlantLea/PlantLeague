@@ -108,7 +108,7 @@ public class MeFragment extends BaseFragment
         rv_me.setLayoutManager(new LinearLayoutManager(getContext()));
         rv_me.addItemDecoration(
                 new DividerItemDecoration(
-                        getContext().getResources().getDrawable(R.drawable.default_divider)
+                        getResources().getDrawable(R.drawable.default_divider)
                         , false, true));
     }
 

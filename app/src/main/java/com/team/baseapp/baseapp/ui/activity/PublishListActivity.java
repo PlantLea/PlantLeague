@@ -50,6 +50,7 @@ public class PublishListActivity extends BaseActivity
     @Override
     protected void initData() {
         if (UserModel.getInstance().getRelease() != null) {
+            publishs.clear();
             publishs.addAll(UserModel.getInstance().getRelease());
         }
         mAdapter = new PublishListRecyclerAdapter(this, publishs);
@@ -113,6 +114,7 @@ public class PublishListActivity extends BaseActivity
                 UserModel.getInstance().getRelease() != null) {
             publishs.clear();
             publishs.addAll(UserModel.getInstance().getRelease());
+            mAdapter.notifyDataSetChanged();
         }
     }
 }
